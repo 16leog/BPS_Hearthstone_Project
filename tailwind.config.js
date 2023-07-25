@@ -5,6 +5,14 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  options: {
+    safelist: [
+      'bg-mageBackgroundMobile',
+      'bg-mageBackground',
+      'bg-hunterBackground',
+      'bg-hunterBackgroundMobile',
+    ], // add all your dynamic classes here
+  },
   theme: {
     extend: {
       colors: {
@@ -21,6 +29,30 @@ module.exports = {
         mageBackground: "url('/mage_background_2023-07-25/background@2x.webp')",
         mageBackgroundMobile:
           "url('/mage_background_2023-07-25/background.webp')",
+        druidBackground:
+          "url('/druid_background_2023-07-25/background@2x.webp')",
+        druidBackgroundMobile:
+          "url('/druid_background_2023-07-25/background.webp')",
+        hunterBackground:
+          "url('/hunter_background_2023-07-25/Background@2x.webp')",
+        hunterBackgroundMobile:
+          "url('/hunter_background_2023-07-25/Background.webp')",
+        priestBackground:
+          "url('/priest_background_2023-07-25/Background@2x.webp')",
+        priestBackgroundMobile:
+          "url('/priest_background_2023-07-25/Background.webp')",
+        rougeBackground:
+          "url('/rouge_background_2023-07-25/Background@2x.webp')",
+        rougeBackgroundMobile:
+          "url('/rouge_background_2023-07-25/Background.webp')",
+        paladinBackground:
+          "url('/paladin_background_2023-07-25/Background@2x.webp')",
+        paladinBackgroundMobile:
+          "url('/paladin_background_2023-07-25/Background.webp')",
+        shamanBackground:
+          "url('/shaman_background_2023-07-25/Background@2x.webp')",
+        shamanBackgroundMobile:
+          "url('/shaman_background_2023-07-25/Background.webp')",
       },
       backgroundPosition: {
         'center-custom': '50% 50%',
@@ -33,6 +65,7 @@ module.exports = {
       },
     },
   },
+
   variants: {
     extend: {
       textColor: ['hover'],
