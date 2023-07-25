@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import mageEmblem from 'public/mage emblem_2023-07-21/mage emblem@3x.webp';
 import druidEmblem from 'public/druid emblem_2023-07-21/druid emblem@3x.webp';
@@ -9,16 +10,18 @@ import shamanEmblem from 'public/shaman emblem_2023-07-21/shaman emblem@3x.webp'
 import demonhunterEmblem from 'public/demon hunter emblem_2023-07-21/demon hunter emblem@3x.webp';
 import warlockEmblem from 'public/warlock emblem_2023-07-21/warlock emblem@3x.webp';
 import warriorEmblem from 'public/warrior emblem_2023-07-21/warrior emblem@3x.webp';
+import { useRouter } from 'next/navigation';
 
 export interface IHomeGrid {
   sampleTextProp: string;
 }
 
 export default function HomeGrid() {
+  const router = useRouter();
   return (
     <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-20 gap-4 mx-7 align-middle justify-items-center items-center">
-      <div className=" max-sm:w-3/4 rounded-full hover:text-white hover:text-shadow-outline text-goldFont">
-        <button className="">
+      <div className=" max-sm:w-3/4 rounded-full hover:text-white  text-goldFont">
+        <button className="" onClick={() => router.push('/class/class')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={mageEmblem}
@@ -30,7 +33,7 @@ export default function HomeGrid() {
         </button>
       </div>
 
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
+      <div className=" max-sm:w-3/4 text-goldFont hover:text-white ">
         <button>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
@@ -111,7 +114,7 @@ export default function HomeGrid() {
             width={164}
             alt=""
           ></Image>
-          <p className=" text-center sm:text-2xl text-l ">Demon Hunter</p>
+          <p className=" text-center sm:text-2xl ">Demon Hunter</p>
         </button>
       </div>
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
