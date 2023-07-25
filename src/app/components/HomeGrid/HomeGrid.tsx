@@ -7,7 +7,7 @@ import priestEmblem from 'public/priest emblem_2023-07-21/priest emblem@3x.webp'
 import rougeEmblem from 'public/rouge emblem_2023-07-21/rouge emblem@3x.webp';
 import paladinEmblem from 'public/paladin emblem_2023-07-21/paladin emblem@3x.webp';
 import shamanEmblem from 'public/shaman emblem_2023-07-21/shaman emblem@3x.webp';
-import demonhunterEmblem from 'public/demon hunter emblem_2023-07-21/demon hunter emblem@3x.webp';
+import demonhunterEmblem from 'public/demonhunter emblem_2023-07-21/demonhunter emblem@3x.webp';
 import warlockEmblem from 'public/warlock emblem_2023-07-21/warlock emblem@3x.webp';
 import warriorEmblem from 'public/warrior emblem_2023-07-21/warrior emblem@3x.webp';
 import { useRouter } from 'next/navigation';
@@ -21,7 +21,7 @@ export default function HomeGrid() {
   return (
     <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-20 gap-4 mx-7 align-middle justify-items-center items-center">
       <div className=" max-sm:w-3/4 rounded-full hover:text-white  text-goldFont">
-        <button className="" onClick={() => router.push('/class/class')}>
+        <button className="" onClick={() => router.push('/class/mage')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={mageEmblem}
@@ -34,7 +34,7 @@ export default function HomeGrid() {
       </div>
 
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white ">
-        <button>
+        <button onClick={() => router.push('/class/druid')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={druidEmblem}
@@ -46,7 +46,7 @@ export default function HomeGrid() {
         </button>
       </div>
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button>
+        <button onClick={() => router.push('/class/hunter')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={hunterEmblem}
@@ -58,7 +58,7 @@ export default function HomeGrid() {
         </button>
       </div>
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button>
+        <button onClick={() => router.push('/class/priest')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={priestEmblem}
@@ -70,7 +70,7 @@ export default function HomeGrid() {
         </button>
       </div>
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button>
+        <button onClick={() => router.push('/class/rouge')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={rougeEmblem}
@@ -82,7 +82,7 @@ export default function HomeGrid() {
         </button>
       </div>
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button>
+        <button onClick={() => router.push('/class/paladin')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={paladinEmblem}
@@ -94,7 +94,7 @@ export default function HomeGrid() {
         </button>
       </div>
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button>
+        <button onClick={() => router.push('/class/shaman')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={shamanEmblem}
@@ -106,7 +106,7 @@ export default function HomeGrid() {
         </button>
       </div>
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button>
+        <button onClick={() => router.push('/class/demonhunter')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={demonhunterEmblem}
@@ -118,7 +118,7 @@ export default function HomeGrid() {
         </button>
       </div>
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button>
+        <button onClick={() => router.push('/class/warlock')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={warlockEmblem}
@@ -130,7 +130,7 @@ export default function HomeGrid() {
         </button>
       </div>
       <div className=" max-sm:w-3/4 text-goldFont hover:text-white ">
-        <button>
+        <button onClick={() => router.push('/class/warrior')}>
           <Image
             className=" hover:shadow-aura  active:shadow-aura rounded-full"
             src={warriorEmblem}
