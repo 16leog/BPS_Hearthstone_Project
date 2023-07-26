@@ -34,6 +34,15 @@ module.exports = {
       colors: {
         navbarColor: '#2c3858',
         goldFont: '#fdd941',
+        accents: '#fcd52d',
+        accents_2: '#ffe792',
+        gold: '#fcd52d',
+        gold_2: '#7a5b35',
+        gold_3: '#a38132',
+        brown: '#3b2203',
+        button_bg: '#405384',
+        card: '#bea27f',
+        card_bg: '#7a5b35',
       },
       fontFamily: {
         aclonica: ['var[--font-aclonica]'],
