@@ -9,8 +9,24 @@ module.exports = {
     safelist: [
       'bg-mageBackgroundMobile',
       'bg-mageBackground',
+      'bg-druidBackground',
+      'bg-druidBackgroundMobile',
       'bg-hunterBackground',
       'bg-hunterBackgroundMobile',
+      'bg-priestBackground',
+      'bg-priestBackgroundMobile',
+      'bg-rougeBackground',
+      'bg-rougeBackgroundMobile',
+      'bg-paladinBackground',
+      'bg-paladinBackgroundMobile',
+      'bg-shamanBackground',
+      'bg-shamanBackgroundMobile',
+      'bg-demonhunterBackground',
+      'bg-demonhunterBackgroundMobile',
+      'bg-warlockBackground',
+      'bg-warlockBackgroundMobile',
+      'bg-warriorBackground',
+      'bg-warriorBackgroundMobile',
     ], // add all your dynamic classes here
   },
   theme: {
@@ -53,6 +69,18 @@ module.exports = {
           "url('/shaman_background_2023-07-25/Background@2x.webp')",
         shamanBackgroundMobile:
           "url('/shaman_background_2023-07-25/Background.webp')",
+        demonhunterBackground:
+          "url('/demonhunter_background_2023-07-25/Background@2x.webp')",
+        demonhunterBackgroundMobile:
+          "url('/demonhunter_background_2023-07-25/Background.webp')",
+        warlockBackground:
+          "url('/warlock_background_2023-07-25/Background@2x.webp')",
+        warlockBackgroundMobile:
+          "url('/warlock_background_2023-07-25/Background.webp')",
+        warriorBackground:
+          "url('/warrior_background_2023-07-25/Background@2x.webp')",
+        warriorBackgroundMobile:
+          "url('/warrior_background_2023-07-25/Background.webp')",
       },
       backgroundPosition: {
         'center-custom': '50% 50%',

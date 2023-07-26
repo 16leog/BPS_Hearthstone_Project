@@ -4,8 +4,36 @@ import Image from 'next/image';
 
 export const revalidate = 1;
 
+// Utility function to map classId to the appropriate class names
+function getBackgroundClass(classId: string): string {
+  switch (classId) {
+    case 'mage':
+      return 'bg-mageBackgroundMobile sm:bg-mageBackground';
+    case 'hunter':
+      return 'bg-hunterBackgroundMobile sm:bg-hunterBackground';
+    case 'druid':
+      return 'bg-druidBackgroundMobile sm:bg-druidBackground';
+    case 'priest':
+      return 'bg-priestBackgroundMobile sm:bg-priestBackground';
+    case 'rouge':
+      return 'bg-rougeBackgroundMobile sm:bg-rougeBackground';
+    case 'paladin':
+      return 'bg-paladinBackgroundMobile sm:bg-paladinBackground';
+    case 'shaman':
+      return 'bg-shamanBackgroundMobile sm:bg-shamanBackground';
+    case 'demonhunter':
+      return 'bg-demonhunterBackgroundMobile sm:bg-demonhunterBackground';
+    case 'warlock':
+      return 'bg-warlockBackgroundMobile sm:bg-warlockBackground';
+    case 'warrior':
+      return 'bg-warriorBackgroundMobile sm:bg-warriorBackground';
+    default:
+      return '';
+  }
+}
+
 export default function Page() {
-  const [classId, setClassId] = useState('mage');
+  const [classId, setClassId] = useState('');
   const [emblemSrc, setEmblemSrc] = useState(null);
 
   useEffect(() => {
@@ -27,11 +55,13 @@ export default function Page() {
     return <div>Loading...</div>; // Return a loading indicator if the image hasn't loaded yet
   }
 
-  console.log(classId)
+  console.log(classId);
   return (
     <>
       <div
-        className={`bg-${classId}BackgroundMobile sm:bg-${classId}Background sm:bg-cover bg-center-custom bg-zoomed-in  min-h-screen`}
+        className={`${getBackgroundClass(
+          classId
+        )} sm:bg-cover bg-center-custom bg-zoomed-in  min-h-screen`}
       >
         <div className="flex flex-row ">
           <Image
