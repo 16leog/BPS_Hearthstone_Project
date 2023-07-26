@@ -105,11 +105,12 @@ export default function Page() {
   console.log(classId);
   return (
     <>
+      {/* TOP PAGE */}
       <div
         className={`${currentClassData.background} sm:bg-cover bg-center-custom bg-zoomed-in min-h-screen`}
       >
         <div className="flex flex-row justify-between items-center">
-          <div className="flex flex-row items-center">
+          <div className="flex flex-row items-center  sm:mt-10">
             <Image
               className="rounded-full p-6 block sm:hidden"
               src={emblemSrc}
@@ -124,14 +125,14 @@ export default function Page() {
               width={266}
               alt=""
             ></Image>
-            <p className="text-3xl text-white text-outline-black">
+            <p className="sm:text-7xl text-3xl items-center text-white text-outline-black">
               {classId === 'demonhunter'
                 ? 'Demon Hunter'
                 : classId.charAt(0).toUpperCase() + classId.slice(1)}
             </p>
           </div>
 
-          <div className="hidden sm:block p-6">
+          <div className="md:mr-20 hidden sm:block p-6 mt-10">
             <GoldButton />
           </div>
         </div>
@@ -147,6 +148,10 @@ export default function Page() {
           </p>
         </div>
       </div>
+      {/* //END OF TOP PAGE */}
+      <div
+        className={`${currentClassData.background} sm:bg-cover bg-center-custom bg-zoomed-in min-h-screen`}
+      ></div>
     </>
   );
 }
