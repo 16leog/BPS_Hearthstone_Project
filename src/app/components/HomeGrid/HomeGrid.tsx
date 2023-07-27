@@ -16,131 +16,53 @@ export interface IHomeGrid {
   sampleTextProp: string;
 }
 
+const classEmblems = {
+  mage: mageEmblem,
+  druid: druidEmblem,
+  hunter: hunterEmblem,
+  priest: priestEmblem,
+  rouge: rougeEmblem,
+  paladin: paladinEmblem,
+  shaman: shamanEmblem,
+  demonhunter: demonhunterEmblem,
+  warlock: warlockEmblem,
+  warrior: warriorEmblem,
+};
+
 export default function HomeGrid() {
   const router = useRouter();
   return (
     <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-20 gap-4 mx-7 align-middle justify-items-center items-center">
-      <div className=" max-sm:w-3/4 rounded-full hover:text-white  text-goldFont">
-        <button className="" onClick={() => router.push('/class/mage')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={mageEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className="text-center sm:text-2xl ">Mage</p>
-        </button>
-      </div>
+      {Object.entries(classEmblems).map(([className, emblemImage]) => {
+        // Handling special case of 'Demonhunter'
+        const displayName =
+          className === 'demonhunter'
+            ? 'Demon Hunter'
+            : capitalizeFirstLetter(className);
 
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white ">
-        <button onClick={() => router.push('/class/druid')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={druidEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className=" text-center sm:text-2xl ">Druid</p>
-        </button>
-      </div>
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button onClick={() => router.push('/class/hunter')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={hunterEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className=" text-center sm:text-2xl ">Hunter</p>
-        </button>
-      </div>
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button onClick={() => router.push('/class/priest')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={priestEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className=" text-center sm:text-2xl ">Priest</p>
-        </button>
-      </div>
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button onClick={() => router.push('/class/rouge')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={rougeEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className=" text-center sm:text-2xl ">Rouge</p>
-        </button>
-      </div>
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button onClick={() => router.push('/class/paladin')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={paladinEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className=" text-center sm:text-2xl ">Paladin</p>
-        </button>
-      </div>
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button onClick={() => router.push('/class/shaman')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={shamanEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className=" text-center sm:text-2xl ">Shaman</p>
-        </button>
-      </div>
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button onClick={() => router.push('/class/demonhunter')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={demonhunterEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className=" text-center sm:text-2xl ">Demon Hunter</p>
-        </button>
-      </div>
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white">
-        <button onClick={() => router.push('/class/warlock')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={warlockEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className=" text-center sm:text-2xl ">Warlock</p>
-        </button>
-      </div>
-      <div className=" max-sm:w-3/4 text-goldFont hover:text-white ">
-        <button onClick={() => router.push('/class/warrior')}>
-          <Image
-            className=" hover:shadow-aura  active:shadow-aura rounded-full"
-            src={warriorEmblem}
-            height={164}
-            width={164}
-            alt=""
-          ></Image>
-          <p className=" text-center sm:text-2xl ">Warrior</p>
-        </button>
-      </div>
+        return (
+          <div
+            key={className}
+            className="max-sm:w-3/4 rounded-full hover:text-white text-goldFont"
+          >
+            <button onClick={() => router.push(`/class/${className}`)}>
+              <Image
+                className="hover:shadow-aura active:shadow-aura rounded-full"
+                src={emblemImage}
+                height={164}
+                width={164}
+                alt=""
+              ></Image>
+              <p className="text-center sm:text-2xl">{displayName}</p>
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
+}
+
+// Helper function to capitalize the first letter of a string
+function capitalizeFirstLetter(string: string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
