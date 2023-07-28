@@ -78,6 +78,12 @@ export const classDataObj: ClassData = {
 
 export default function ClassTopPage({ cardClass }: props) {
   const [emblemSrc, setEmblemSrc] = useState(null);
+  const [toggle, setToggle] = useState(false);
+
+  function handleToggle() {
+    toggle ? setToggle(false) : setToggle(true);
+  }
+
 
   // Dynamic import for image
   useEffect(() => {
@@ -123,14 +129,14 @@ export default function ClassTopPage({ cardClass }: props) {
             </p>
           </div>
 
-          <div className="md:mr-20 hidden sm:block p-6 mt-10">
+          <div className="md:mr-20 hidden sm:block p-6 mt-10 z-5">
             <GoldButton />
           </div>
         </div>
-        <div className="p-6 block sm:hidden">
+        <div className="p-6 block sm:hidden z-10">
           <GoldButton />
         </div>
-        <div className="flex flex-col gap-5 mt-36">
+        <div className="flex flex-col gap-5 mt-36 z-0">
           <h1 className=" text-accents text-outline-black text-6xl text-center text-shadow self-center shadow-black max-sm:text-3xl max-sm:font-outline-1 max-sm:w-3/4 ">
             {classDataObj[cardClass].title}
           </h1>
