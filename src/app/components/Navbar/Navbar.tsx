@@ -13,7 +13,8 @@ export default function Navbar() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="bg-transparent flex flex-row w-full h-20 max-sm:justify-between items-center justify-center shadow-2xl">
+    <>
+    <nav className=" bg-navbarColor bg-opacity-80 flex flex-row w-full h-20 max-sm:justify-between items-center justify-center shadow-2xl sticky top-0">
       <div className="p-4 relative max-sm:left-8 right-1/4">
         <button onClick={() => router.push('/')}>
           <Image src={homepageLogo2} alt={''} width={140} height={70}></Image>
@@ -40,28 +41,30 @@ export default function Navbar() {
       >
         <div className=" h-0.5 w-6 rounded-none bg-goldFont before:absolute before:h-0.5 before:w-6 before:-translate-x-3 before:-translate-y-2 before:rounded before:bg-goldFont before:content-[''] after:absolute after:h-0.5 after:w-6 after:-translate-x-3 after:translate-y-2 after:rounded after:bg-goldFont after:content-['']"></div>
       </button>
-      {toggle && (
-        <div className="animate-open-menu absolute top-20 bg-navbarColor w-full h-full text-4xl flex flex-col items-center justify-center gap-24 origin-top left-0 z-10">
-          <button
-            className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8 "
-            onClick={() => router.push('/')}
-          >
-            HOME
-          </button>
-          <button
-            className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8"
-            onClick={() => router.push('/favorites')}
-          >
-            FAVORITES
-          </button>
-          <button
-            className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8"
-            onClick={() => router.push('/shop')}
-          >
-            SHOP
-          </button>
-        </div>
-      )}
+      
     </nav>
+    {toggle && (
+      <div className="animate-open-menu  absolute top-20 bg-navbarColor w-full h-full text-4xl flex flex-col items-center justify-center gap-24 origin-top left-0 z-10">
+        <button
+          className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8 "
+          onClick={() => router.push('/')}
+        >
+          HOME
+        </button>
+        <button
+          className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8"
+          onClick={() => router.push('/favorites')}
+        >
+          FAVORITES
+        </button>
+        <button
+          className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8"
+          onClick={() => router.push('/shop')}
+        >
+          SHOP
+        </button>
+      </div>
+    )}
+    </>
   );
 }
