@@ -112,7 +112,7 @@ export default function Filters() {
     }
   }
   return (
-    <div>
+    <div className=' max-w-full'>
       <h1 className=" text-white sm:font-outline-4 sm:text-8xl text-shadow shadow-black text-5xl font-outline-1"></h1>
       <div className="flex flex-col justify-center items-center mt-36 ">
         <button className=" bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 bordergold rounded-full h-16 w-64 flex flex-col justify-center items-center justify-self-end sm:hidden">
@@ -121,9 +121,9 @@ export default function Filters() {
           </p>
         </button>
       </div>
-      <div className=" bg-white max-sm:hidden flex flex-row w-full justify-around items-start max-lg:flex-col max-lg:gap-5"></div>
+      <div className="  max-sm:hidden flex flex-row w-full justify-around items-start max-lg:flex-col max-lg:gap-5"></div>
       {/* Mana bar */}
-      <div className="flex flex-row items-center gap-8 ml-20 max-sm:hidden ">
+      <div className="flex flex-row items-center gap-8 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden  ">
         <p className="text-cyan-400 text-2xl font-outline-1">Mana</p>
         <div className="flex flex-row justify-center items-center bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 rounded-full px-1 text-white h-16">
           <div className=" flex flex-row justify-between bg-button_bg rounded-full h-[58px] ">
@@ -164,8 +164,8 @@ export default function Filters() {
         </div>
 
         {/*Sortby Row */}
-        <div className="flex flex-row gap-5 items-start">
-          <p className=" font-montserrat font-thin text-white text-xl ml-10">
+        <div className="flex flex-row gap-5 items-start ">
+          <p className=" font-montserrat font-thin text-white text-xl mx-auto">
             sort by:
           </p>
           <div className=" flex flex-col items-center gap-4 ">
@@ -185,6 +185,7 @@ export default function Filters() {
               </div>
             )}
           </div>
+          <div className=''>
           <FilterButton
             text={'Filter'}
             width={'52'}
@@ -193,6 +194,7 @@ export default function Filters() {
             image={filter}
             funct={toggleFilter}
           ></FilterButton>
+          </div>
         </div>
       </div>
       {/* Filters row */}
