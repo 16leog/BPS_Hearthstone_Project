@@ -1,8 +1,11 @@
+'use client'
 import React, { useState } from 'react';
 import FilterButton from '../FilterButton/FilterButton';
 import downArrow from '/public/Keyboard arrow down.svg';
 import FilterScroll from '../FilterScroll/FilterScroll';
 import filter from 'public/filter-6551 1.svg';
+import { CardClass } from '../../../../types';
+import GridContainer from '../Carousel/GridContainer';
 
 const mana = ['Mana: low to high', 'Mana: high to low'];
 const atk = [
@@ -66,7 +69,12 @@ const keywords = [
   'Counter',
   'Deathrattle',
 ];
-export default function Filters() {
+
+type FilterProps = {
+  cards: CardClass[];
+};
+
+export default function Filters({ cards }: FilterProps) {
   const [filterToggle, userFilterToggle] = useState(false);
   const [manaToggle, userManaToggle] = useState(false);
   const [attackToggle, userAttackToggle] = useState(false);
@@ -289,6 +297,9 @@ export default function Filters() {
           </div>
         </div>
       )}
+      <div className='mt-20'>
+      
+      </div>
     </div>
   );
 }
