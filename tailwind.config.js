@@ -15,8 +15,8 @@ module.exports = {
       'bg-hunterBackgroundMobile',
       'bg-priestBackground',
       'bg-priestBackgroundMobile',
-      'bg-rougeBackground',
-      'bg-rougeBackgroundMobile',
+      'bg-rogueBackground',
+      'bg-rogueBackgroundMobile',
       'bg-paladinBackground',
       'bg-paladinBackgroundMobile',
       'bg-shamanBackground',
@@ -66,10 +66,10 @@ module.exports = {
           "url('/priest_background_2023-07-25/Background@2x.webp')",
         priestBackgroundMobile:
           "url('/priest_background_2023-07-25/Background.webp')",
-        rougeBackground:
-          "url('/rouge_background_2023-07-25/Background@2x.webp')",
-        rougeBackgroundMobile:
-          "url('/rouge_background_2023-07-25/Background.webp')",
+        rogueBackground:
+          "url('/rogue_background_2023-07-25/Background@2x.webp')",
+        rogueBackgroundMobile:
+          "url('/rogue_background_2023-07-25/Background.webp')",
         paladinBackground:
           "url('/paladin_background_2023-07-25/Background@2x.webp')",
         paladinBackgroundMobile:

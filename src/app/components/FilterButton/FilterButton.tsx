@@ -25,7 +25,7 @@ export default function FilterButton({
   return (
     <>
       <button
-        className={`bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 rounded-full h-16 w-${width} flex flex-col justify-center items-center`}
+        className={`bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 rounded-full h-16 w-${width} flex flex-col justify-center items-center `}
         onClick={funct}
       >
         <p

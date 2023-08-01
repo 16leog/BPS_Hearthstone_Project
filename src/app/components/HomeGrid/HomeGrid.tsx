@@ -4,7 +4,7 @@ import mageEmblem from 'public/mage emblem_2023-07-21/mage emblem@3x.webp';
 import druidEmblem from 'public/druid emblem_2023-07-21/druid emblem@3x.webp';
 import hunterEmblem from 'public/hunter emblem_2023-07-21/hunter emblem@3x.webp';
 import priestEmblem from 'public/priest emblem_2023-07-21/priest emblem@3x.webp';
-import rougeEmblem from 'public/rouge emblem_2023-07-21/rouge emblem@3x.webp';
+import rogueEmblem from 'public/rogue emblem_2023-07-21/rogue emblem@3x.webp';
 import paladinEmblem from 'public/paladin emblem_2023-07-21/paladin emblem@3x.webp';
 import shamanEmblem from 'public/shaman emblem_2023-07-21/shaman emblem@3x.webp';
 import demonhunterEmblem from 'public/demonhunter emblem_2023-07-21/demonhunter emblem@3x.webp';
@@ -21,7 +21,7 @@ const classEmblems = {
   druid: druidEmblem,
   hunter: hunterEmblem,
   priest: priestEmblem,
-  rouge: rougeEmblem,
+  rogue: rogueEmblem,
   paladin: paladinEmblem,
   shaman: shamanEmblem,
   demonhunter: demonhunterEmblem,
