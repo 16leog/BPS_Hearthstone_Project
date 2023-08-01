@@ -68,7 +68,7 @@ export default function GridContainer({ cards }: CarouselProps) {
 
   return (
     <>
-      <div className="grid grid-cols-8 gap-x-[900px] xl:gap-x-[1600px] lg:gap-x-[1200px] 2xl:gap-x-[2000px] no-scrollbar overflow-x-scroll overflow-y-hidden w-screen items-center">
+      <div className="grid grid-cols-8 gap-x-[900px] xl:gap-x-[1600px] lg:gap-x-[1200px] 2xl:gap-x-[2000px] overflow-x-scroll overflow-y-hidden w-full mx-auto items-center ">
         {eight.map((list, index) => (
           <div
             key={index}
@@ -81,8 +81,8 @@ export default function GridContainer({ cards }: CarouselProps) {
         <div className="relative bottom-14" id="6">
           {/* <CarouselGrid cardList={last ? last : []}></CarouselGrid> */}
         </div>
-        <button className="absolute left-0" onClick={() => handleSlideLeft()}>
-          <Image src={left} alt="left"></Image>
+        <button className="absolute left-0 " onClick={() => handleSlideLeft()}>
+          <Image src={left} alt="left" className=' rounded-full hover:shadow-aura'></Image>
         </button>
         <button
           className="absolute right-0 "

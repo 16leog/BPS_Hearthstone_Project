@@ -1,9 +1,9 @@
 'use client'
 import React, { useState } from 'react';
 import FilterButton from '../FilterButton/FilterButton';
-import downArrow from '/public/Keyboard arrow down.svg';
+import downArrow from '/public/Keyboard arrow down(1).svg';
 import FilterScroll from '../FilterScroll/FilterScroll';
-import filter from 'public/filter-6551 1.svg';
+import filter from 'public/filter-6551 1(1).svg';
 import { CardClass } from '../../../../types';
 import GridContainer from '../Carousel/GridContainer';
 
@@ -131,10 +131,10 @@ export default function Filters({ cards }: FilterProps) {
       </div>
       <div className="  max-sm:hidden flex flex-row w-full justify-around items-start max-lg:flex-col max-lg:gap-5"></div>
       {/* Mana bar */}
-      <div className="flex flex-row items-center gap-8 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden  ">
+      <div className="flex flex-row items-center gap-8 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden justify-center">
         <p className="text-cyan-400 text-2xl font-outline-1">Mana</p>
         <div className="flex flex-row justify-center items-center bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 rounded-full px-1 text-white h-16">
-          <div className=" flex flex-row justify-between bg-button_bg rounded-full h-[58px] ">
+          <div className=" flex flex-row justify-between bg-brown  rounded-full h-[58px] ">
             <button className=" font-outline-1 mr-1 w-12 text-xl drop-shadow-lg ">
               0
             </button>
@@ -182,7 +182,7 @@ export default function Filters({ cards }: FilterProps) {
                 text={manafilter}
                 width={'64'}
                 innerwidth={'250'}
-                color={'button_bg'}
+                color={'brown'}
                 image2={downArrow}
                 funct={toggleMana}
               ></FilterButton>
@@ -198,7 +198,7 @@ export default function Filters({ cards }: FilterProps) {
             text={'Filter'}
             width={'52'}
             innerwidth={'200'}
-            color="button_bg"
+            color="brown"
             image={filter}
             funct={toggleFilter}
           ></FilterButton>
@@ -213,7 +213,7 @@ export default function Filters({ cards }: FilterProps) {
               text={'Attack'}
               width={'52'}
               innerwidth={'200'}
-              color={'button_bg'}
+              color={'brown'}
               image2={downArrow}
               funct={toggleAttack}
             ></FilterButton>
@@ -226,7 +226,7 @@ export default function Filters({ cards }: FilterProps) {
               text={'Health'}
               width={'52'}
               innerwidth={'200'}
-              color={'button_bg'}
+              color={'brown'}
               image2={downArrow}
               funct={toggleHealth}
             ></FilterButton>
@@ -239,7 +239,7 @@ export default function Filters({ cards }: FilterProps) {
               text={'Card Type'}
               width={'52'}
               innerwidth={'200'}
-              color={'button_bg'}
+              color={'brown'}
               image2={downArrow}
               funct={toggleCardType}
             ></FilterButton>
@@ -255,7 +255,7 @@ export default function Filters({ cards }: FilterProps) {
               text={'Minion Type'}
               width={'52'}
               innerwidth={'200'}
-              color={'button_bg'}
+              color={'brown'}
               image2={downArrow}
               funct={toggleMinionType}
             ></FilterButton>
@@ -271,7 +271,7 @@ export default function Filters({ cards }: FilterProps) {
               text={'Rarity'}
               width={'52'}
               innerwidth={'200'}
-              color={'button_bg'}
+              color={'brown'}
               image2={downArrow}
               funct={toggleRarity}
             ></FilterButton>
@@ -284,7 +284,7 @@ export default function Filters({ cards }: FilterProps) {
               text={'Keywords'}
               width={'52'}
               innerwidth={'200'}
-              color={'button_bg'}
+              color={'brown'}
               image2={downArrow}
               funct={toggleKeywords}
             ></FilterButton>

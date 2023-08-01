@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <>
-    <nav className=" bg-navbarColor bg-opacity-80 flex flex-row w-full h-20 max-sm:justify-between items-center justify-center shadow-2xl sticky top-0">
+    <nav className=" bg-navbarColor bg-opacity-80 z-50 flex flex-row w-full h-20 max-sm:justify-between items-center justify-center shadow-2xl sticky top-0">
       <div className="p-4 relative max-sm:left-8 right-1/4">
         <button onClick={() => router.push('/')}>
           <Image src={homepageLogo2} alt={''} width={140} height={70}></Image>

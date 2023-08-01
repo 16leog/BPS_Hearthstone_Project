@@ -9,7 +9,7 @@ export default function FilterScroll({ list, funct }: FilterScrollProps) {
 
   return (
     <div
-      className={` bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 h-auto mt-20 p-0.5 z-10 w-52 max-sm:hidden lg:absolute rounded-xl flex flex-col items-center`}
+      className={` bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 h-auto mt-20 p-0.5 z-10 absolute w-52 max-sm:hidden lg:absolute rounded-xl flex flex-col items-center`}
     >
       <div
         className="flex flex-col   bg-brown w-full z-50 max-h-80 overflow-y-auto rounded-xl text-shadow-lg shadow-black"

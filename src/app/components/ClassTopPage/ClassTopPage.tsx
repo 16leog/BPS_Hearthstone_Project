@@ -39,8 +39,8 @@ export const classDataObj: ClassData = {
     description:
       'The Light calls, but shadows whisper. Heroes of righteousness, Priests have unmatched healing potential and can bestow powerful holy enchantments on their minions. However, there is no light without dark. Priests can also tap into the shadows to manipulate the minds of their enemies and deal mortifying psychic damage.',
   },
-  rouge: {
-    background: 'bg-rougeBackgroundMobile sm:bg-rougeBackground',
+  rogue: {
+    background: 'bg-rogueBackgroundMobile sm:bg-rogueBackground',
     title: 'Watch your back!',
     description:
       'Using unseen blade, blinding speed, and subtle poison, Rogues can dispatch their enemies before escaping without a trace. Unleash a devastating chain of minions, spells, and attacks all within a single turn.',
