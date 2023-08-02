@@ -31,6 +31,16 @@ module.exports = {
   },
   theme: {
     extend: {
+      width: {
+        '19/20': '98%',
+        '95vw': '95vw',
+      },
+      height: {
+        '19/20': '95%',
+      },
+      left: {
+        '1/5': '20%',
+      },
       colors: {
         navbarColor: '#2c3858',
         goldFont: '#fdd941',
