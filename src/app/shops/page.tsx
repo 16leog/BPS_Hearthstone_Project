@@ -15,12 +15,10 @@ export default async function Page(props: HomeProps) {
     lat: props.searchParams.lat,
     lng: props.searchParams.lng,
   });
-  console.log('hi')
+  console.log('middleware', places);
   return (
     <>
       <div className="w-full overflow-y-hidden flex flex-col">
-        
-
         {/* hidden */}
         <div className="">
           <ScrollMaps places={places} />

@@ -16,7 +16,7 @@ export async function getIDS({ lat, lng }: IDprops) {
     lat +
     ',' +
     lng +
-    '&radius=10000' +
+    '&radius=100000' +
     '&type=store' +
     '&key=' +
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
@@ -26,7 +26,7 @@ export async function getIDS({ lat, lng }: IDprops) {
   let IDS: IdClass[] = await data.results.map((place: any) => {
     return deserialize(place, IdClass);
   });
-
+  console.log('IDS:', IDS);
   return IDS;
 }
 
@@ -54,6 +54,6 @@ export async function getPlaceDetail({ lat, lng }: props) {
   const places: PlaceClass[] = placeDetails.map((place: any) => {
     return deserialize(place.result, PlaceClass);
   });
-
+  console.log(places);
   return places;
 }

@@ -40,8 +40,9 @@ export default function ScrollMaps({ places }: props) {
     }
   };
 
+  console.log('SCROLLMAPS PLACES:', place);
   return (
-    <div>
+    <>
       <div className="w-full absolute top-50 z-10 md:flex flex-col overflow-y-scroll text-shadow-lg bg-cover bg-blue-950 bg-homepageBackground shadow-black  py-3 text-white md:w-1/4 h-screen">
         <div className="flex items-center mt-12 md:justify-center">
           <Image
@@ -85,6 +86,6 @@ export default function ScrollMaps({ places }: props) {
         )}
       </div>
       <Maps places={places} center={center}></Maps>
-    </div>
+    </>
   );
 }
