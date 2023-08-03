@@ -16,7 +16,7 @@ export async function getIDS({ lat, lng }: IDprops) {
     lat +
     ',' +
     lng +
-    '&radius=100000' +
+    '&radius=1000000' +
     '&type=store' +
     '&key=' +
     process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;

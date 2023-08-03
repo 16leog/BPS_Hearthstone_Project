@@ -40,9 +40,9 @@ export default function Maps({ places, center }: GoogleMapProps) {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLatitude(position.coords.latitude);
-      console.log(position.coords.latitude)
+      console.log(position.coords.latitude);
       setLongitude(position.coords.longitude);
-      console.log(position.coords.longitude)
+      console.log(position.coords.longitude);
     });
   }, []);
 
@@ -57,7 +57,7 @@ export default function Maps({ places, center }: GoogleMapProps) {
       >
         {/* Puedes agregar marcadores u otros elementos aquí */}
         {places.map((place, index) => (
-          <div key={index} className=" hover:drop-shadow-blue">
+          <div key={index} className=" hover:shadow-aura">
             <Marker
               onMouseDown={() =>
                 openSlide(place.name, place.vicinity, place.rating)
