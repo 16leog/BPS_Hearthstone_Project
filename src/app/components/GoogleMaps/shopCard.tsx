@@ -18,7 +18,7 @@ export default function ShopCard({
   return (
     <>
       <div
-        className="text-white font-AclonicaR hover:text-gold mb-8"
+        className="text-white font-aclonica hover:text-gold mb-8"
         onClick={clickCard}
       >
         <div>
