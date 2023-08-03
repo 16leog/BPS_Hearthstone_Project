@@ -19,9 +19,9 @@ type DetailShopProps = {
 };
 
 export default function ShopDetail({ place, clickBack }: DetailShopProps) {
-  console.log('place:', place)
+  console.log('place:', place);
   return (
-    <div>
+    <>
       <div className="text-white font-aclonica">
         <div className="flex">
           <Image
@@ -78,6 +78,6 @@ export default function ShopDetail({ place, clickBack }: DetailShopProps) {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

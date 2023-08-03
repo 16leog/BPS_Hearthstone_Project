@@ -40,7 +40,9 @@ export default function Maps({ places, center }: GoogleMapProps) {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLatitude(position.coords.latitude);
+      console.log(position.coords.latitude)
       setLongitude(position.coords.longitude);
+      console.log(position.coords.longitude)
     });
   }, []);
 
