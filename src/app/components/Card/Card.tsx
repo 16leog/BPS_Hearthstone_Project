@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import { useState } from 'react';
 import favorite_border from '../../../../public/Favorite border.svg';
@@ -16,6 +17,7 @@ type CardProps = {
   health: string;
   mechcanics: any;
   cardSet: string;
+  mana: string;
 };
 
 export default function Card({
@@ -31,11 +33,53 @@ export default function Card({
   health,
   mechcanics,
   cardSet,
+  mana,
 }: CardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
+  
+
   const handleFavorite = () => {
-    isFavorite ? setIsFavorite(false) : setIsFavorite(true);
+    if (!isFavorite) {
+      fetch('http://localhost:3000/api/postData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cardid: id,
+          cardname: name,
+          cardset: cardSet!,
+          type: type,
+          rarity: rarity!,
+          attack: attack!,
+          health: health!,
+          text: text!,
+          race: race!,
+          playerclass: playerClass!,
+          img: pic!,
+          mechanics: [mechcanics?.toString()],
+          mana: mana!,
+        }),
+      });
+      setIsFavorite(true);
+    }
+    if (isFavorite) {
+      fetch('http://localhost:3000/api/deleteData', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cardid: id,
+        }),
+      });
+      console.log('deleted');
+      setIsFavorite(false);
+    }
   };
+
+
+
   text = text?.replace(/<b>/g, '');
   text = text?.replace(/<\/b>/g, '');
   text = text?.replace(/<i>/g, '');
