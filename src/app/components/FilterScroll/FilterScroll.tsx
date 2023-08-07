@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 type FilterScrollProps = {
   list: Array<string>;
-  funct?: () => void;
+  funct(atk: string): void;
 };
 
 export default function FilterScroll({ list, funct }: FilterScrollProps) {
@@ -19,8 +19,7 @@ export default function FilterScroll({ list, funct }: FilterScrollProps) {
           <button
             key={item}
             className=" hover:text-accents text-white text-left px-2 py-1"
-            onClick={funct}
-            onBlur={funct}
+            onClick={() => funct(item)}
           >
             {item}
           </button>
