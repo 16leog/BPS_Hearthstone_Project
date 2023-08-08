@@ -127,27 +127,51 @@ export default function Filters({ cardClass, cards }: FilterProps) {
     if (atk === 'Any Attack') {
       userFilteredCards(cards);
     } else if (atk === 'Attack: 0') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 0));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 0 || card.attack === '0')
+      );
     } else if (atk === 'Attack: 1') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 1));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 1 || card.attack === '1')
+      );
     } else if (atk === 'Attack: 2') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 2));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 2 || card.attack === '2')
+      );
     } else if (atk === 'Attack: 3') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 3));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 3 || card.attack === '3')
+      );
     } else if (atk === 'Attack: 4') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 4));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 4 || card.attack === '4')
+      );
     } else if (atk === 'Attack: 5') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 5));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 5 || card.attack === '5')
+      );
     } else if (atk === 'Attack: 6') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 6));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 6 || card.attack === '6')
+      );
     } else if (atk === 'Attack: 7') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 7));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 7 || card.attack === '7')
+      );
     } else if (atk === 'Attack: 8') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 8));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 8 || card.attack === '8')
+      );
     } else if (atk === 'Attack: 9') {
-      userFilteredCards(filteredCards.filter((card) => card.attack === 9));
+      userFilteredCards(
+        filteredCards.filter((card) => card.attack === 9 || card.attack === '9')
+      );
     } else if (atk === 'Attack: 10+') {
-      userFilteredCards(filteredCards.filter((card) => card.attack >= 10));
+      userFilteredCards(
+        filteredCards.filter(
+          (card) => card.attack >= 10 || card.attack === '10'
+        )
+      );
     }
     toggleAttack();
   }
@@ -155,27 +179,51 @@ export default function Filters({ cardClass, cards }: FilterProps) {
     if (hlth === 'Any Health') {
       userFilteredCards(cards);
     } else if (hlth === 'Health: 0') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 0));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 0 || card.health === '0')
+      );
     } else if (hlth === 'Health: 1') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 1));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 1 || card.health === '1')
+      );
     } else if (hlth === 'Health: 2') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 2));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 2 || card.health === '2')
+      );
     } else if (hlth === 'Health: 3') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 3));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 3 || card.health === '3')
+      );
     } else if (hlth === 'Health: 4') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 4));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 4 || card.health === '4')
+      );
     } else if (hlth === 'Health: 5') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 5));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 5 || card.health === '5')
+      );
     } else if (hlth === 'Health: 6') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 6));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 6 || card.health === '6')
+      );
     } else if (hlth === 'Health: 7') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 7));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 7 || card.health === '7')
+      );
     } else if (hlth === 'Health: 8') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 8));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 8 || card.health === '8')
+      );
     } else if (hlth === 'Health: 9') {
-      userFilteredCards(filteredCards.filter((card) => card.health === 9));
+      userFilteredCards(
+        filteredCards.filter((card) => card.health === 9 || card.health === '9')
+      );
     } else if (hlth === 'Health: 10+') {
-      userFilteredCards(filteredCards.filter((card) => card.health >= 10));
+      userFilteredCards(
+        filteredCards.filter(
+          (card) => card.health >= 10 || card.health === '10'
+        )
+      );
     }
     toggleHealth();
   }
@@ -332,9 +380,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
   return (
     <div className=" max-w-full">
       <h1 className=" text-white sm:font-outline-4 sm:text-8xl text-shadow shadow-black text-5xl font-outline-1"></h1>
-      <div className="flex flex-col justify-center items-center mt-36 ">
+      <div className="flex flex-col justify-center items-center mt-20 ">
         <button className=" bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 bordergold rounded-full h-16 w-64 flex flex-col justify-center items-center justify-self-end sm:hidden">
-          <p className=" bg-navbarColor hover:bg-accents_2 w-[250px] h-[58px] text-white hover:text-gold_2 text-md text-center p-3 rounded-full flex flex-row justify-center items-center">
+          <p className=" bg-brown hover:bg-accents_2 w-[250px] h-[58px] text-white hover:text-gold_2 text-md text-center p-3 rounded-full flex flex-row justify-center items-center">
             Manage filters
           </p>
         </button>
@@ -349,7 +397,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className=" font-outline-1 mr-1 w-12 text-xl drop-shadow-lg "
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 0)
+                  filteredCards.filter((card) => card.mana! === 0 || card.mana! === '0')
                 );
               }}
             >
@@ -359,7 +407,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 1)
+                  filteredCards.filter((card) => card.mana! === 1 || card.mana! === '1')
                 );
               }}
             >
@@ -369,7 +417,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 2)
+                  filteredCards.filter((card) => card.mana! === 2 || card.mana! === '2')
                 );
               }}
             >
@@ -379,7 +427,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 3)
+                  filteredCards.filter((card) => card.mana! === 3 || card.mana! === '3')
                 );
               }}
             >
@@ -389,7 +437,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 4)
+                  filteredCards.filter((card) => card.mana! === 4 || card.mana! === '4')
                 );
               }}
             >
@@ -399,7 +447,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 5)
+                  filteredCards.filter((card) => card.mana! === 5 || card.mana! === '5')
                 );
               }}
             >
@@ -409,7 +457,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 6)
+                  filteredCards.filter((card) => card.mana! === 6 || card.mana! === '6')
                 );
               }}
             >
@@ -419,7 +467,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 7)
+                  filteredCards.filter((card) => card.mana! === 7 || card.mana! === '7')
                 );
               }}
             >
@@ -429,7 +477,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 8)
+                  filteredCards.filter((card) => card.mana! === 8 || card.mana! === '8')
                 );
               }}
             >
@@ -439,7 +487,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 9)
+                  filteredCards.filter((card) => card.mana! === 9 || card.mana! === '9')
                 );
               }}
             >
@@ -449,7 +497,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! >= 10)
+                  filteredCards.filter((card) => card.mana! >= 10 || card.mana! === '10')
                 );
               }}
             >
@@ -464,16 +512,15 @@ export default function Filters({ cardClass, cards }: FilterProps) {
             sort by:
           </p>
           <div className=" flex flex-col items-center gap-4 ">
-            <div className="flex flex-col items-center">
-              <FilterButton
-                text={manafilter}
-                width={'64'}
-                innerwidth={'250'}
-                color={'brown'}
-                image2={downArrow}
-                funct={toggleMana}
-              ></FilterButton>
-            </div>
+            <FilterButton
+              text={manafilter}
+              width={'64'}
+              innerwidth={'250'}
+              color={'brown'}
+              image2={downArrow}
+              funct={toggleMana}
+            ></FilterButton>
+
             {manaToggle && (
               <FilterScroll list={mana} funct={userManaFilter}></FilterScroll>
             )}

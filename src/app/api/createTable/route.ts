@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import { readRecords } from '../../../../lib/db';
 
-export async function GET() {
+// Function to create a new Hearthstone card
+
+// Function to retrieve all Hearthstone cards
+export async function GET(request: Request) {
   const createTableQuery = `
     CREATE TABLE IF NOT EXISTS cards (
       cardId VARCHAR(255) PRIMARY KEY,
@@ -19,12 +22,6 @@ export async function GET() {
       mana VARCHAR(255)
     )
   `;
-
-  const queryText = `
-  
-  SELECT * FROM cards;
-`;
-  const d = await readRecords(createTableQuery);
-  const data = await readRecords(queryText);
+  const data = await readRecords(createTableQuery);
   return NextResponse.json({ data });
 }

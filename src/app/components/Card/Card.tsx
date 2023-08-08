@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Image from 'next/image';
 import { useState } from 'react';
 import favorite_border from '../../../../public/Favorite border.svg';
@@ -36,7 +36,29 @@ export default function Card({
   mana,
 }: CardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
-  
+
+  const checkFavorite = async () => {
+    const crd = await fetch('http://localhost:3000/api/getCard', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        cardid: id,
+      }),
+    }).then((res) => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        return [{ cardid: '' }];
+      }
+    });
+    if (crd[0].cardid !== '' || undefined) {
+      setIsFavorite(true);
+    }
+  };
+
+  checkFavorite();
 
   const handleFavorite = () => {
     if (!isFavorite) {
@@ -77,8 +99,6 @@ export default function Card({
       setIsFavorite(false);
     }
   };
-
-
 
   text = text?.replace(/<b>/g, '');
   text = text?.replace(/<\/b>/g, '');
