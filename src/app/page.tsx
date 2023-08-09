@@ -8,15 +8,15 @@ import { useEffect } from 'react';
 
 export default function Home() {
   const router = useRouter();
-useEffect(() => {
-  fetch('http://localhost:3000/api/createTable', {
-    next: { revalidate: 1 },
-  }).then((res) => {
-    if (res.ok) {
-      return res.json();
-    }
-  });
-}, []);
+  useEffect(() => {
+    fetch('http://localhost:3000/api/createTable', {
+      next: { revalidate: 1 },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+    });
+  }, []);
   return (
     <main className="flex min-h-screen flex-col items-center bg-homepageBackground">
       <div className="m-8">
@@ -27,7 +27,7 @@ useEffect(() => {
           height={250}
         ></Image>
       </div>
-      <Searchbar />
+      <Searchbar sampleTextProp="sampleTextProp" />
       <HomeGrid />
     </main>
   );

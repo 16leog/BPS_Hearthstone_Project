@@ -1,12 +1,18 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FilterButton from '../FilterButton/FilterButton';
 import downArrow from '/public/Keyboard arrow down(1).svg';
 import FilterScroll from '../FilterScroll/FilterScroll';
 import filter from 'public/filter-6551 1(1).svg';
 import { CardClass } from '../../../../types';
 import GridContainer from '../Carousel/GridContainer';
-
+import { Montserrat } from 'next/font/google';
+import MobileCarousel from '../Carousel/MobileCarousel';
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: '600',
+  variable: '--font-montserrat',
+});
 const mana = ['Mana: low to high', 'Mana: high to low'];
 const atk = [
   'Any Attack',
@@ -85,10 +91,34 @@ export default function Filters({ cardClass, cards }: FilterProps) {
   const [minionTypeToggle, userMinionTypeToggle] = useState(false);
   const [rarityToggle, userRarityToggle] = useState(false);
   const [keywordsToggle, userKeywordsToggle] = useState(false);
-
+  const [toggle, setToggle] = useState(false);
   const [manafilter, userManafilter] = useState(mana[0]);
 
+
+  const [windowSize, setWindowSize] = useState<{
+    width?: number;
+    height?: number;
+  }>({});
+
+  useEffect(() => {
+    // only execute all the code below in client side
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
   //Toggle functions
+  function handleToggle() {
+    toggle ? setToggle(false) : setToggle(true);
+  }
   function toggleFilter() {
     filterToggle ? userFilterToggle(false) : userFilterToggle(true);
   }
@@ -381,11 +411,145 @@ export default function Filters({ cardClass, cards }: FilterProps) {
     <div className=" max-w-full">
       <h1 className=" text-white sm:font-outline-4 sm:text-8xl text-shadow shadow-black text-5xl font-outline-1"></h1>
       <div className="flex flex-col justify-center items-center mt-20 ">
-        <button className=" bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 bordergold rounded-full h-16 w-64 flex flex-col justify-center items-center justify-self-end sm:hidden">
+        <button onClick={handleToggle} className=" bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 bordergold rounded-full h-16 w-64 flex flex-col justify-center items-center justify-self-end sm:hidden">
           <p className=" bg-brown hover:bg-accents_2 w-[250px] h-[58px] text-white hover:text-gold_2 text-md text-center p-3 rounded-full flex flex-row justify-center items-center">
             Manage filters
           </p>
         </button>
+        {toggle && (
+        <div className="sm:hidden animate-open-menu absolute bg-brown bg-cover bg-opacity-80 w-full h-full text-4xl flex flex-col items-center origin-top left-0 z-30">
+          <button
+            className=" place-self-end p-4 text-white"
+            onClick={handleToggle}
+          >
+            &#10005;
+          </button>
+          <div className="flex flex-col items-start text-sm gap-2 absolute">
+            <p className=" font-serif font-thin text-white text-xl">sort by:</p>
+            <div className=" flex flex-col items-center gap-4 text-sm">
+              <FilterButton
+                text={manafilter}
+                width={'64'}
+                innerwidth={'250'}
+                color={'brown'}
+                image2={downArrow}
+                funct={toggleMana}
+              ></FilterButton>
+              {manaToggle && (
+                <FilterScroll list={mana} funct={userManaFilter}></FilterScroll>
+              )}
+            </div>
+            <FilterButton
+              text={'Filter'}
+              width={'52'}
+              innerwidth={'200'}
+              color="brown"
+              image={filter}
+              funct={toggleFilter}
+            ></FilterButton>
+            {filterToggle && (
+              <div className="grid max-sm:flex max-sm:flex-col gap-10 max-sm:gap-1 max-sm:p-0 py-5  lg:grid-cols-6 grid-cols-3">
+                <div className="flex flex-col gap-2">
+                  <FilterButton
+                    text={'Attack'}
+                    width={'52'}
+                    innerwidth={'200'}
+                    color={'brown'}
+                    image2={downArrow}
+                    funct={toggleAttack}
+                  ></FilterButton>
+                  {attackToggle && (
+                    <FilterScroll
+                      list={atk}
+                      funct={userAttackFilter}
+                    ></FilterScroll>
+                  )}
+                </div>
+                <div className="flex flex-col gap-2">
+                  <FilterButton
+                    text={'Health'}
+                    width={'52'}
+                    innerwidth={'200'}
+                    color={'brown'}
+                    image2={downArrow}
+                    funct={toggleHealth}
+                  ></FilterButton>
+                  {healthToggle && (
+                    <FilterScroll
+                      list={health}
+                      funct={userHealthFilter}
+                    ></FilterScroll>
+                  )}
+                </div>
+                <div className="flex flex-col gap-2">
+                  <FilterButton
+                    text={'Card Type'}
+                    width={'52'}
+                    innerwidth={'200'}
+                    color={'brown'}
+                    image2={downArrow}
+                    funct={toggleCardType}
+                  ></FilterButton>
+                  {cardTypeToggle && (
+                    <FilterScroll
+                      list={cardType}
+                      funct={userTypeFilter}
+                    ></FilterScroll>
+                  )}
+                </div>
+                <div className="flex flex-col gap-2">
+                  <FilterButton
+                    text={'Minion Type'}
+                    width={'52'}
+                    innerwidth={'200'}
+                    color={'brown'}
+                    image2={downArrow}
+                    funct={toggleMinionType}
+                  ></FilterButton>
+                  {minionTypeToggle && (
+                    <FilterScroll
+                      list={minionType}
+                      funct={userMinionFilter}
+                    ></FilterScroll>
+                  )}
+                </div>
+                <div className="flex flex-col gap-2">
+                  <FilterButton
+                    text={'Rarity'}
+                    width={'52'}
+                    innerwidth={'200'}
+                    color={'brown'}
+                    image2={downArrow}
+                    funct={toggleRarity}
+                  ></FilterButton>
+                  {rarityToggle && (
+                    <FilterScroll
+                      list={rarity}
+                      funct={useRarityFilter}
+                    ></FilterScroll>
+                  )}
+                </div>
+                <div className="flex flex-col gap-2">
+                  <FilterButton
+                    text={'Keywords'}
+                    width={'52'}
+                    innerwidth={'200'}
+                    color={'brown'}
+                    image2={downArrow}
+                    funct={toggleKeywords}
+                  ></FilterButton>
+                  {keywordsToggle && (
+                    <FilterScroll
+                      list={keywords}
+                      funct={useKeywordFilter}
+                    ></FilterScroll>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
       </div>
       <div className="  max-sm:hidden flex flex-row w-full justify-around items-start max-lg:flex-col max-lg:gap-5"></div>
       {/* Mana bar */}
@@ -397,7 +561,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className=" font-outline-1 mr-1 w-12 text-xl drop-shadow-lg "
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 0 || card.mana! === '0')
+                  filteredCards.filter(
+                    (card) => card.mana! === 0 || card.mana! === '0'
+                  )
                 );
               }}
             >
@@ -407,7 +573,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 1 || card.mana! === '1')
+                  filteredCards.filter(
+                    (card) => card.mana! === 1 || card.mana! === '1'
+                  )
                 );
               }}
             >
@@ -417,7 +585,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 2 || card.mana! === '2')
+                  filteredCards.filter(
+                    (card) => card.mana! === 2 || card.mana! === '2'
+                  )
                 );
               }}
             >
@@ -427,7 +597,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 3 || card.mana! === '3')
+                  filteredCards.filter(
+                    (card) => card.mana! === 3 || card.mana! === '3'
+                  )
                 );
               }}
             >
@@ -437,7 +609,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 4 || card.mana! === '4')
+                  filteredCards.filter(
+                    (card) => card.mana! === 4 || card.mana! === '4'
+                  )
                 );
               }}
             >
@@ -447,7 +621,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 5 || card.mana! === '5')
+                  filteredCards.filter(
+                    (card) => card.mana! === 5 || card.mana! === '5'
+                  )
                 );
               }}
             >
@@ -457,7 +633,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 6 || card.mana! === '6')
+                  filteredCards.filter(
+                    (card) => card.mana! === 6 || card.mana! === '6'
+                  )
                 );
               }}
             >
@@ -467,7 +645,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 7 || card.mana! === '7')
+                  filteredCards.filter(
+                    (card) => card.mana! === 7 || card.mana! === '7'
+                  )
                 );
               }}
             >
@@ -477,7 +657,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 8 || card.mana! === '8')
+                  filteredCards.filter(
+                    (card) => card.mana! === 8 || card.mana! === '8'
+                  )
                 );
               }}
             >
@@ -487,7 +669,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! === 9 || card.mana! === '9')
+                  filteredCards.filter(
+                    (card) => card.mana! === 9 || card.mana! === '9'
+                  )
                 );
               }}
             >
@@ -497,7 +681,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
-                  filteredCards.filter((card) => card.mana! >= 10 || card.mana! === '10')
+                  filteredCards.filter(
+                    (card) => card.mana! >= 10 || card.mana! === '10'
+                  )
                 );
               }}
             >
@@ -508,9 +694,9 @@ export default function Filters({ cardClass, cards }: FilterProps) {
 
         {/*Sortby Row */}
         <div className="flex flex-row gap-5 items-start ">
-          <p className=" font-montserrat font-thin text-white text-xl mx-auto">
-            sort by:
-          </p>
+          <div className=" flex my-4 font-thin text-white text-xl mx-auto">
+            <a className={montserrat.className}>Sort By:</a>
+          </div>
           <div className=" flex flex-col items-center gap-4 ">
             <FilterButton
               text={manafilter}
@@ -530,7 +716,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               text={'Filter'}
               width={'52'}
               innerwidth={'200'}
-              color="brown"
+              color="brown hover:bg-accents_2 hover:text-black"
               image={filter}
               funct={toggleFilter}
             ></FilterButton>
@@ -635,8 +821,11 @@ export default function Filters({ cardClass, cards }: FilterProps) {
           </div>
         </div>
       )}
-      <div className="mt-20"></div>
-      <GridContainer cards={filteredCards}></GridContainer>
+      {windowSize.width! > 640 ? (
+        <GridContainer cards={filteredCards}></GridContainer>
+      ) : (
+        <MobileCarousel cards={filteredCards}></MobileCarousel>
+      )}
     </div>
   );
 }

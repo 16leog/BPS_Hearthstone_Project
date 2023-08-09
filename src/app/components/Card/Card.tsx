@@ -130,7 +130,7 @@ export default function Card({
             alt="card"
           ></Image>
         </div>
-        <div className=" bg-card_bg relative left-1/2 2xl:left-[140px] top-4 rounded-full p-1">
+        <div className=" bg-card_bg relative max-sm:left-28 left-1/2 2xl:left-[140px] top-4 rounded-full p-1">
           <div className="flex flex-col bg-card rounded-full">
             <button className="p-1" onClick={handleFavorite}>
               <Image
@@ -142,7 +142,7 @@ export default function Card({
             </button>
           </div>
         </div>
-        <div className=" h-36 w-36 lg:w-44 xl:w-60 2xl:w-72 2xl:h-40 bg-card_bg flex flex-col justify-center items-center px-0.5 rounded-lg">
+        <div className=" h-36 w-36 lg:w-44 xl:w-60 2xl:w-72 2xl:h-40 max-sm:w-60 bg-card_bg flex flex-col justify-center items-center px-0.5 rounded-lg">
           <div className="w-full h-full bg-card flex flex-col justify-center items-center rounded-lg">
             <h1 className="text-black text-center xl:text-lg md:text-xs lg:text-sm">
               {name}
