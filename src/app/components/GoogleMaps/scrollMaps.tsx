@@ -5,7 +5,7 @@ import { PlaceClass } from '../../../../types';
 import Maps from './maps';
 import ShopCard from '../GoogleMaps/shopCard';
 import ShopDetail from '../GoogleMaps/shopDetail';
-
+import left from '../../../../public/heroicons-outline_arrow-left.svg';
 type props = {
   places: PlaceClass[];
 };
@@ -47,7 +47,7 @@ export default function ScrollMaps({ places }: props) {
         <div className="flex items-center mt-12 md:justify-center">
           <Image
             className="md:hidden mx-9"
-            src={''}
+            src={left}
             alt={'left'}
             onClick={goToList}
           />

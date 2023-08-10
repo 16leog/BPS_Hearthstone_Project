@@ -13,8 +13,12 @@ export default async function Page({ params }: { params: { class: string } }) {
   return (
     <>
       {/* TOP PAGE */}
-      <ClassTopPage cardClass={cardClass} />
-      <ClassBottomPage cardClass={cardClass} cards={cards ? cards : []} />
+      <div>
+        <ClassTopPage cardClass={cardClass} />
+      </div>
+      <div>
+        <ClassBottomPage cardClass={cardClass} cards={cards ? cards : []} />
+      </div>
     </>
   );
 }
