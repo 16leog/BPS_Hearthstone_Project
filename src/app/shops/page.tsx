@@ -9,13 +9,23 @@ interface HomeProps {
   };
 }
 
-export default async function Page(props: HomeProps) {
-  console.log('props', props.searchParams.lat, props.searchParams.lng);
+export default async function Page({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const key = searchParams.lat as string;
+  console.log(key);
+  const key2 = searchParams.lng as string;
+  console.log(key2);
+  // console.log('props', props.searchParams.lat, props.searchParams.lng);
   let places = await getPlaceDetail({
-    lat: props.searchParams.lat,
-    lng: props.searchParams.lng,
+    lat: key.toString(),
+    lng: key2.toString(),
   });
-  console.log('middleware', places);
+  console.log('places', places);
   return (
     <>
       <div className="w-full overflow-y-hidden flex flex-col">
