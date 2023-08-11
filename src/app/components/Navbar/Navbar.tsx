@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import homepageLogo2 from 'public/homepage_logo 2_2023-07-21/homepage_logo 2.webp';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export interface INavbar {
   sampleTextProp: string;
@@ -11,7 +11,19 @@ export interface INavbar {
 export default function Navbar() {
   const router = useRouter();
   const [toggle, setToggle] = useState(false);
+  const [center, setCenter] = useState({ lat: 0, lng: 0});
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setCenter({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+       
+      });
+      console.log('center', center);
+    });
+   
+  }, []);
   return (
     <>
       <nav className=" bg-navbarColor bg-opacity-80 z-20 flex flex-row w-full h-20 max-sm:justify-between items-center justify-center shadow-2xl sticky top-0">

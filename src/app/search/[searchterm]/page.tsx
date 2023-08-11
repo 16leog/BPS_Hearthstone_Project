@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getAllCards } from '../../api/getAllCards';
 import notFound from '../../../../public/no cards found_2023-08-09/no cards found@2x.webp';
-import Filters from '@/app/components/Filters/Filters';
+import Filters2 from '@/app/components/Filters/Filters2';
 
 export default async function Page({
   params,
@@ -41,7 +41,7 @@ export default async function Page({
               x
             </Link>
           </p>
-          <Filters cardClass={''} cards={cards}></Filters>
+          <Filters2 cardClass={''} cards={cards}></Filters2>
         </div>
       </div>
     );
