@@ -11,6 +11,7 @@ type props = {
 };
 export default function ScrollMaps({ places }: props) {
   const [showDetail, setShowDetail] = useState(false);
+  const [showList, setShowList] = useState(true);
   const [place, setPlace] = useState<PlaceClass>();
   const [center, setCenter] = useState({ lat: 0, lng: 0 });
 
@@ -35,14 +36,18 @@ export default function ScrollMaps({ places }: props) {
   const goToList = () => {
     if (showDetail) {
       setShowDetail(!showDetail);
-    } else {
-      console.log('Close the sideMenuShops');
+    } else if (showList) {
+      setShowList(!showList);
     }
+  };
+  const handleShowList = () => {
+    setShowList(true);
   };
 
   console.log('SCROLLMAPS PLACES:', place);
   return (
     <>
+    {( showList &&
       <div className="w-full absolute top-50 z-10 md:flex flex-col overflow-y-scroll text-shadow-lg bg-cover bg-blue-950 bg-homepageBackground shadow-black  py-3 text-white md:w-1/4 h-screen">
         <div className="flex items-center mt-12 md:justify-center">
           <Image
@@ -73,10 +78,10 @@ export default function ScrollMaps({ places }: props) {
                   name={place.name}
                   address={place.vicinity}
                   open={place.opening_hours.open_now ? 'Open' : 'Closed'}
-                  schedule={place.opening_hours.weekday_text[0].replace(
+                  schedule={place.opening_hours?.weekday_text ? place.opening_hours?.weekday_text[0].replace(
                     'Monday:',
                     ''
-                  )}
+                  ): 'n/a'}
                   phone={place.phone}
                   clickCard={() => goToDetail(place)}
                 />
@@ -85,7 +90,8 @@ export default function ScrollMaps({ places }: props) {
           </div>
         )}
       </div>
-      <Maps places={places} center={center}></Maps>
+      )}
+      <Maps places={places} center={center} clickBack={handleShowList}></Maps>
     </>
   );
 }

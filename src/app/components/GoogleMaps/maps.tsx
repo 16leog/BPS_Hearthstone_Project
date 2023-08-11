@@ -1,4 +1,3 @@
-'use client';
 import {
   GoogleMap,
   InfoWindow,
@@ -10,41 +9,21 @@ import { PlaceClass } from '../../../../types';
 
 const containerStyle = {
   width: '100%',
-  height: '995px',
+  height: '100%',
 };
 
-const openSlide = (name: string, vicinity: string, rating: string) => {
-  return (
-    <InfoWindow>
-      <div>{name}</div>
-      <div>{vicinity}</div>
-      <div>{rating}</div>
-    </InfoWindow>
-  );
-};
 type GoogleMapProps = {
   places: PlaceClass[];
   center: any;
+  clickBack: () => void;
 };
 
-export default function Maps({ places, center }: GoogleMapProps) {
-  const libraries = useMemo(() => ['places'], []);
-  const [latitude, setLatitude] = useState(0);
-  const [longitude, setLongitude] = useState(0);
+export default function Maps({ places, center, clickBack }: GoogleMapProps) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
-    libraries: libraries as any,
+    libraries: ['places'] as any,
   });
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      setLatitude(position.coords.latitude);
-      console.log(position.coords.latitude);
-      setLongitude(position.coords.longitude);
-      console.log(position.coords.longitude);
-    });
-  }, []);
 
   return isLoaded ? (
     <div className=" w-full h-full absolute">
@@ -59,9 +38,7 @@ export default function Maps({ places, center }: GoogleMapProps) {
         {places.map((place, index) => (
           <div key={index} className=" hover:shadow-aura">
             <Marker
-              onMouseDown={() =>
-                openSlide(place.name, place.vicinity, place.rating)
-              }
+              onClick={clickBack}
               position={place.geometry.location}
               icon={{ url: 'logo icon_2023-08-02/logo icon.webp' }}
             ></Marker>

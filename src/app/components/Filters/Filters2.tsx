@@ -81,7 +81,7 @@ type FilterProps = {
   cards: CardClass[];
 };
 
-export default function Filters({ cardClass, cards }: FilterProps) {
+export default function Filters2({ cardClass, cards }: FilterProps) {
   const [filteredCards, userFilteredCards] = useState(cards);
   const [filterToggle, userFilterToggle] = useState(false);
   const [manaToggle, userManaToggle] = useState(false);
@@ -417,7 +417,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
           </p>
         </button>
         {toggle && (
-        <div className="sm:hidden animate-open-menu absolute bg-brown bg-cover bg-opacity-80 w-full h-full text-4xl flex flex-col items-center top-[1048px] left-0 z-30">
+        <div className="sm:hidden animate-open-menu absolute bg-brown bg-cover bg-opacity-80 w-full h-full text-4xl flex flex-col items-center top-0 left-0 z-30">
           <button
             className=" place-self-end p-4 text-white"
             onClick={handleToggle}

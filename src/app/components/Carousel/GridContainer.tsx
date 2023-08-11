@@ -81,7 +81,7 @@ export default function GridContainer({ cards }: CarouselProps) {
 
   return (
     <>
-      <div className="snap-x snap-mandatory grid grid-cols-8 gap-x-[900px] xl:gap-x-[1600px] lg:gap-x-[1200px] 2xl:gap-x-[2000px] overflow-x-scroll overflow-y-hidden w-full mx-auto items-center ">
+      <div className="snap-x snap-mandatory grid grid-cols-8 gap-x-[900px] xl:gap-x-[1600px] lg:gap-x-[1200px] 2xl:gap-x-[2000px] overflow-x-scroll overflow-y-hidden no-scrollbar w-full mx-auto items-center ">
         {eight.map((list, index) => (
           <div
             key={index}
