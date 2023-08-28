@@ -120,7 +120,7 @@ export default function Card({
 
   return (
     <div className=" mx-0">
-      <div className="flex flex-col items-center lg:p-8 md:p-5 xl:h-80 2xl:h-96  z-0">
+      <div className="flex flex-col items-center p-8  z-0">
         <div className=" z-0 relative top-10 lg:w-2/3 2xl:w-1/2">
           <Image
             className=""
@@ -142,7 +142,7 @@ export default function Card({
             </button>
           </div>
         </div>
-        <div className=" h-36 w-36 lg:w-44 xl:w-60 2xl:w-72 2xl:h-40 max-sm:w-60 bg-card_bg flex flex-col justify-center items-center px-0.5 rounded-lg">
+        <div className=" h-24 w-48 lg:w-44 xl:w-60 2xl:w-72 2xl:h-40 max-sm:w-60 bg-card_bg flex flex-col justify-center items-center p-1 rounded-lg">
           <div className="w-full h-full bg-card flex flex-col justify-center items-center rounded-lg">
             <h1 className="text-black text-center xl:text-lg md:text-xs lg:text-sm">
               {name}
