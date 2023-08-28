@@ -25,16 +25,19 @@ export default async function Page({
   if (cards === undefined) {
     return (
       <div className="bg-homepageBackground bg-cover min-h-screen">
-        <div className="p-7">
+        <div className="p-10 sm:ml-28 sm:flex sm:items-center">
           <Link href="/">
             <div className="flex text-goldFont items-center text-xl cursor-pointer">
-              <p className="mr-2">CANCEL SEARCH</p>
-              <Image src={exit} alt="Cancel Search" />
+              <p className="mr-2 sm:hidden">CANCEL SEARCH</p>
+              <Image src={exit} alt="Cancel Search" className="sm:hidden" />
             </div>
           </Link>
-          <h1 className=" text-2xl  text-white">
+          <h1 className="  text-2xl  text-white mr-2  ">
             <a className={montserrat.className}>0 Results for {key}</a>
           </h1>
+          <Link href="/">
+            <Image src={exit} alt="Cancel Search" className="max-sm:hidden" />
+          </Link>
         </div>
         <div className="flex flex-col items-center justify-center gap-5">
           <Image
