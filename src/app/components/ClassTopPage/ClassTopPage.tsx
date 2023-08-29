@@ -123,7 +123,7 @@ export default function ClassTopPage({ cardClass }: props) {
               width={266}
               alt=""
             ></Image>
-            <p className="sm:text-7xl text-3xl items-center text-white text-outline-black">
+            <p className="lg:text-7xl md:text-5xl text-4xl items-center text-white text-outline-black">
               {cardClass === 'demonhunter'
                 ? 'Demon Hunter'
                 : cardClass.charAt(0).toUpperCase() + cardClass.slice(1)}
@@ -137,7 +137,7 @@ export default function ClassTopPage({ cardClass }: props) {
         <div className="p-6 block sm:hidden z-10">
           <GoldButton />
         </div>
-        <div className="flex flex-col gap-5 mt-36 z-0">
+        <div className="flex flex-col gap-5 md:mt-auto mt-36 z-0">
           <h1 className=" text-accents text-outline-black text-6xl text-center text-shadow self-center shadow-black max-sm:text-3xl max-sm:font-outline-1 max-sm:w-3/4 ">
             {classDataObj[cardClass].title}
           </h1>

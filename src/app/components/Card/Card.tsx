@@ -151,7 +151,7 @@ export default function Card({
             <h1 className="text-black text-center xl:text-lg md:text-xs lg:text-sm">
               {name}
             </h1>
-            <div className="text-black font-serif md:text-xs font-thin lg:text-xs 2xl:text-base text-center">
+            <div className="text-black font-serif  font-thin max-lg:text-sm text-xs 2xl:text-base text-center">
               <p>{type}</p>
               <p>{rarity}</p>
               <p>{text}</p>

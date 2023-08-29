@@ -133,7 +133,6 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
 
   function toggleMana() {
     userManaToggle(!manaToggle);
-    setToggle(false);
     userAttackToggle(false);
     userHealthToggle(false);
     userCardTypeToggle(false);
@@ -144,7 +143,6 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
 
   function toggleAttack() {
     userAttackToggle(!attackToggle);
-    setToggle(false);
     userManaToggle(false);
     userHealthToggle(false);
     userCardTypeToggle(false);
@@ -155,7 +153,6 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
 
   function toggleHealth() {
     userHealthToggle(!healthToggle);
-    setToggle(false);
     userManaToggle(false);
     userAttackToggle(false);
     userCardTypeToggle(false);
@@ -166,7 +163,6 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
 
   function toggleCardType() {
     userCardTypeToggle(!cardTypeToggle);
-    setToggle(false);
     userManaToggle(false);
     userAttackToggle(false);
     userHealthToggle(false);
@@ -177,7 +173,6 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
 
   function toggleMinionType() {
     userMinionTypeToggle(!minionTypeToggle);
-    setToggle(false);
     userManaToggle(false);
     userAttackToggle(false);
     userHealthToggle(false);
@@ -188,7 +183,6 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
 
   function toggleRarity() {
     userRarityToggle(!rarityToggle);
-    setToggle(false);
     userManaToggle(false);
     userAttackToggle(false);
     userHealthToggle(false);
@@ -199,7 +193,6 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
 
   function toggleKeywords() {
     userKeywordsToggle(!keywordsToggle);
-    setToggle(false);
     userManaToggle(false);
     userAttackToggle(false);
     userHealthToggle(false);
@@ -492,9 +485,9 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
               &#10005;
             </button>
             <div className="flex flex-col items-start text-sm gap-2 absolute">
-              <p className=" font-serif font-thin text-white text-xl">
-                sort by:
-              </p>
+              <div className=" flex my-4 font-thin text-white text-xl mx-auto">
+                <a className={montserrat.className}>Sort By:</a>
+              </div>
               <div className=" flex flex-col items-center gap-4 text-sm">
                 <FilterButton
                   text={manafilter}
