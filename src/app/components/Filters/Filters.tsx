@@ -618,12 +618,12 @@ export default function Filters({ cardClass, cards }: FilterProps) {
       </div>
       <div className="  max-sm:hidden flex flex-row w-full justify-around items-start max-lg:flex-col max-lg:gap-5"></div>
       {/* Mana bar */}
-      <div className="flex flex-row items-center gap-8 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden justify-center">
-        <p className="text-cyan-400 text-2xl font-outline-1">Mana</p>
+      <div className="flex flex-row items-center gap-1 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden justify-center">
+        <p className="text-cyan-400 text-xl font-outline-1">Mana</p>
         <div className="flex flex-row justify-center items-center bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 rounded-full px-1 text-white h-16">
           <div className=" flex flex-row justify-between bg-brown  rounded-full h-[58px] ">
             <button
-              className=" font-outline-1 mr-1 w-12 text-xl drop-shadow-lg "
+              className=" font-outline-1 mx-2 w-6 text-l drop-shadow-lg "
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -635,7 +635,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               0
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -647,7 +647,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               1
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -659,7 +659,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               2
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -671,7 +671,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               3
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -683,7 +683,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               4
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -695,7 +695,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               5
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -707,7 +707,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               6
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -719,7 +719,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               7
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -731,7 +731,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               8
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -743,7 +743,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               9
             </button>
             <button
-              className="font-outline-1 mr-1 w-12 text-xl drop-shadow-lg"
+              className="font-outline-1 ml-2 mr-3 w-6 text-l drop-shadow-lg"
               onClick={() => {
                 userFilteredCards(
                   filteredCards.filter(
@@ -758,11 +758,11 @@ export default function Filters({ cardClass, cards }: FilterProps) {
         </div>
 
         {/*Sortby Row */}
-        <div className="flex flex-row gap-5 items-start ">
-          <div className=" flex my-4 font-thin text-white text-xl mx-auto">
+        <div className="flex flex-row gap-1 items-start ">
+          <div className=" flex my-4 font-thin text-white text-l ">
             <a className={montserrat.className}>Sort By:</a>
           </div>
-          <div className=" flex flex-col items-center gap-4 ">
+          <div className=" flex flex-col items-center  ">
             <FilterButton
               text={manafilter}
               width={'64'}
@@ -776,7 +776,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               <FilterScroll list={mana} funct={userManaFilter}></FilterScroll>
             )}
           </div>
-          <div className="">
+          <div className="flex flex-col items-center ">
             <FilterButton
               text={'Filter'}
               width={'52'}
