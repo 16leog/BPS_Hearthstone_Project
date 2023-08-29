@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import favorite_border from '../../../../public/Favorite border.svg';
 import favorite from '../../../../public/Favorite.svg';
 import book from '../../../../public/Mask group_2023-07-31/Mask group@3x.webp';
@@ -58,9 +58,13 @@ export default function Card({
     }
   };
 
-  checkFavorite();
+  useEffect(() => {
+    checkFavorite();
+}, [id]);
+
 
   const handleFavorite = () => {
+    
     if (!isFavorite) {
       fetch('http://localhost:3000/api/postData', {
         method: 'POST',
@@ -130,7 +134,7 @@ export default function Card({
             alt="card"
           ></Image>
         </div>
-        <div className=" bg-card_bg relative max-sm:left-28 left-1/2 2xl:left-[140px] top-4 rounded-full p-1">
+        <div className=" bg-card_bg relative max-sm:left-28 left-[60%] 2xl:left-[140px] top-4 rounded-full p-1">
           <div className="flex flex-col bg-card rounded-full">
             <button className="p-1" onClick={handleFavorite}>
               <Image
