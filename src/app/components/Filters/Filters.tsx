@@ -116,31 +116,96 @@ export default function Filters({ cardClass, cards }: FilterProps) {
 
   //Toggle functions
   function handleToggle() {
-    toggle ? setToggle(false) : setToggle(true);
+    setToggle(!toggle);
+    userManaToggle(false);
+    userAttackToggle(false);
+    userHealthToggle(false);
+    userCardTypeToggle(false);
+    userMinionTypeToggle(false);
+    userRarityToggle(false);
+    userKeywordsToggle(false);
   }
+
   function toggleFilter() {
-    filterToggle ? userFilterToggle(false) : userFilterToggle(true);
+    userFilterToggle(!filterToggle);
+    // Do not change the state for userFilterToggle here
   }
+
   function toggleMana() {
-    userManaToggle(manaToggle ? false : true);
+    userManaToggle(!manaToggle);
+    setToggle(false);
+    userAttackToggle(false);
+    userHealthToggle(false);
+    userCardTypeToggle(false);
+    userMinionTypeToggle(false);
+    userRarityToggle(false);
+    userKeywordsToggle(false);
   }
+
   function toggleAttack() {
-    userAttackToggle(attackToggle ? false : true);
+    userAttackToggle(!attackToggle);
+    setToggle(false);
+    userManaToggle(false);
+    userHealthToggle(false);
+    userCardTypeToggle(false);
+    userMinionTypeToggle(false);
+    userRarityToggle(false);
+    userKeywordsToggle(false);
   }
+
   function toggleHealth() {
-    userHealthToggle(healthToggle ? false : true);
+    userHealthToggle(!healthToggle);
+    setToggle(false);
+    userManaToggle(false);
+    userAttackToggle(false);
+    userCardTypeToggle(false);
+    userMinionTypeToggle(false);
+    userRarityToggle(false);
+    userKeywordsToggle(false);
   }
+
   function toggleCardType() {
-    userCardTypeToggle(cardTypeToggle ? false : true);
+    userCardTypeToggle(!cardTypeToggle);
+    setToggle(false);
+    userManaToggle(false);
+    userAttackToggle(false);
+    userHealthToggle(false);
+    userMinionTypeToggle(false);
+    userRarityToggle(false);
+    userKeywordsToggle(false);
   }
+
   function toggleMinionType() {
-    userMinionTypeToggle(minionTypeToggle ? false : true);
+    userMinionTypeToggle(!minionTypeToggle);
+    setToggle(false);
+    userManaToggle(false);
+    userAttackToggle(false);
+    userHealthToggle(false);
+    userCardTypeToggle(false);
+    userRarityToggle(false);
+    userKeywordsToggle(false);
   }
+
   function toggleRarity() {
-    userRarityToggle(rarityToggle ? false : true);
+    userRarityToggle(!rarityToggle);
+    setToggle(false);
+    userManaToggle(false);
+    userAttackToggle(false);
+    userHealthToggle(false);
+    userCardTypeToggle(false);
+    userMinionTypeToggle(false);
+    userKeywordsToggle(false);
   }
+
   function toggleKeywords() {
-    userKeywordsToggle(keywordsToggle ? false : true);
+    userKeywordsToggle(!keywordsToggle);
+    setToggle(false);
+    userManaToggle(false);
+    userAttackToggle(false);
+    userHealthToggle(false);
+    userCardTypeToggle(false);
+    userMinionTypeToggle(false);
+    userRarityToggle(false);
   }
   function userManaFilter() {
     if (manafilter === mana[0]) {

@@ -142,7 +142,7 @@ export default function Card({
             </button>
           </div>
         </div>
-        <div className=" h-24 w-48 lg:w-44 xl:w-60 2xl:w-72 2xl:h-40 max-sm:w-60 bg-card_bg flex flex-col justify-center items-center p-1 rounded-lg">
+        <div className=" h-28 w-48 lg:w-52 xl:w-60 2xl:w-72 2xl:h-40 max-sm:w-60 bg-card_bg flex flex-col justify-center items-center p-1 rounded-lg">
           <div className="w-full h-full bg-card flex flex-col justify-center items-center rounded-lg">
             <h1 className="text-black text-center xl:text-lg md:text-xs lg:text-sm">
               {name}
