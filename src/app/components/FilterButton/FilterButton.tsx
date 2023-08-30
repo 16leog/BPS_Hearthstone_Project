@@ -29,7 +29,7 @@ export default function FilterButton({
         onClick={funct}
       >
         <p
-          className={` bg-${color}  text-white text-xs text-center max-xl:w-32 h-8 xl:w-40 xl:h-10 rounded-full flex flex-row justify-center gap-1 items-center`}
+          className={` bg-${color}  text-white text-xs text-center max-lg:w-28 max-xl:w-36 h-10 xl:w-40 xl:h-10 rounded-full flex flex-row justify-center gap-1 items-center`}
         >
           {image && <Image src={image} alt="" width={20} height={20}></Image>}
           {text}
