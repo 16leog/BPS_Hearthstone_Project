@@ -513,8 +513,8 @@ export default function Filters({ cardClass, cards }: FilterProps) {
                 funct={toggleFilter}
               ></FilterButton>
               {filterToggle && (
-                <div className="grid max-sm:flex max-sm:flex-col gap-10 max-sm:gap-1 max-sm:p-0 py-5  lg:grid-cols-6 grid-cols-3">
-                  <div className="flex flex-col gap-2">
+                <div className="grid max-sm:flex max-sm:flex-col  max-sm:gap-1 max-sm:p-0   lg:grid-cols-6 grid-cols-3">
+                  <div className="flex flex-col ">
                     <FilterButton
                       text={'Attack'}
                       width={'52'}
@@ -530,7 +530,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
                       ></FilterScroll>
                     )}
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col ">
                     <FilterButton
                       text={'Health'}
                       width={'52'}
@@ -546,7 +546,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
                       ></FilterScroll>
                     )}
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col">
                     <FilterButton
                       text={'Card Type'}
                       width={'52'}
@@ -562,7 +562,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
                       ></FilterScroll>
                     )}
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col">
                     <FilterButton
                       text={'Minion Type'}
                       width={'52'}
@@ -578,7 +578,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
                       ></FilterScroll>
                     )}
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col">
                     <FilterButton
                       text={'Rarity'}
                       width={'52'}
@@ -594,7 +594,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
                       ></FilterScroll>
                     )}
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col">
                     <FilterButton
                       text={'Keywords'}
                       width={'52'}
@@ -616,7 +616,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
           </div>
         )}
       </div>
-      <div className="  max-sm:hidden flex flex-row w-full justify-around items-start max-lg:flex-col max-lg:gap-5"></div>
+      <div className="  max-sm:hidden flex flex-row w-full justify-around items-start  max-lg:gap-5"></div>
       {/* Mana bar */}
       <div className="flex flex-row items-center gap-1 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden justify-center">
         <p className="text-cyan-400 text-xl font-outline-1">Mana</p>
@@ -790,8 +790,8 @@ export default function Filters({ cardClass, cards }: FilterProps) {
       </div>
       {/* Filters row */}
       {filterToggle && (
-        <div className="grid gap-10 py-5  lg:grid-cols-6 grid-cols-3 max-sm:hidden">
-          <div className="flex flex-col gap-2">
+        <div className="flex justify-around  py-5  grid-cols-3  max-sm:hidden">
+          <div className="flex flex-col ">
             <FilterButton
               text={'Attack'}
               width={'52'}
@@ -804,7 +804,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               <FilterScroll list={atk} funct={userAttackFilter}></FilterScroll>
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col ">
             <FilterButton
               text={'Health'}
               width={'52'}
@@ -820,7 +820,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               ></FilterScroll>
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col ">
             <FilterButton
               text={'Card Type'}
               width={'52'}
@@ -836,7 +836,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               ></FilterScroll>
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col ">
             <FilterButton
               text={'Minion Type'}
               width={'52'}
@@ -852,7 +852,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               ></FilterScroll>
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col ">
             <FilterButton
               text={'Rarity'}
               width={'52'}
@@ -868,7 +868,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               ></FilterScroll>
             )}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col ">
             <FilterButton
               text={'Keywords'}
               width={'52'}
