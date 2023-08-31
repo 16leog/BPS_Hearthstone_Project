@@ -106,7 +106,7 @@ export default function GridContainer({ cards }: CarouselProps) {
       </div>
       <div className="flex flex-row  justify-center items-centerrounded-full px-1 text-white h-16">
         <div className=" flex flex-row justify-between gap-10 rounded-full h-[58px] ">
-          {tail!.index > 1 ? (
+          {tail?.index && tail.index > 1 ? (
             <>
               <button
                 className={`${
