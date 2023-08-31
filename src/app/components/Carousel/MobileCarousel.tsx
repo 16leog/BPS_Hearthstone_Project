@@ -147,7 +147,9 @@ export default function MobileCarousel({ cards }: CarouselProps) {
           </button>
           <button
             className={`${
-              startMobileIndex + 2 > tailMobile!.index ? 'invisible' : ''
+              startMobileIndex + 2 > (tailMobile ? tailMobile!.index : 0)
+                ? 'invisible'
+                : ''
             } ${
               startMobileIndex < -1 ? 'invisible' : ''
             } rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 drop-shadow-lg`}
@@ -157,9 +159,13 @@ export default function MobileCarousel({ cards }: CarouselProps) {
           </button>
           <button
             className={`${
-              startMobileIndex + 3 > tailMobile!.index ? 'invisible' : ''
+              startMobileIndex + 3 > (tailMobile ? tailMobile!.index : 0)
+                ? 'invisible'
+                : ''
             } ${
-              startMobileIndex + 2 > tailMobile!.index ? 'invisible' : ''
+              startMobileIndex + 2 > (tailMobile ? tailMobile!.index : 0)
+                ? 'invisible'
+                : ''
             } rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 drop-shadow-lg`}
             onClick={() => handleMobileThird()}
           >
@@ -167,9 +173,13 @@ export default function MobileCarousel({ cards }: CarouselProps) {
           </button>
           <button
             className={`${
-              startMobileIndex + 4 > tailMobile!.index ? 'invisible' : ''
+              startMobileIndex + 4 > (tailMobile ? tailMobile!.index : 0)
+                ? 'invisible'
+                : ''
             } ${
-              startMobileIndex + 2 > tailMobile!.index ? 'invisible' : ''
+              startMobileIndex + 2 > (tailMobile ? tailMobile!.index : 0)
+                ? 'invisible'
+                : ''
             } rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 drop-shadow-lg`}
             onClick={() => handleMobileFourth()}
           >
@@ -177,7 +187,9 @@ export default function MobileCarousel({ cards }: CarouselProps) {
           </button>
           <button
             className={`${
-              startMobileIndex + 5 > tailMobile!.index ? 'invisible' : ''
+              startMobileIndex + 5 > (tailMobile ? tailMobile!.index : 0)
+                ? 'invisible'
+                : ''
             } rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 drop-shadow-lg`}
             onClick={() => handleMobileFifth()}
           >
@@ -191,7 +203,11 @@ export default function MobileCarousel({ cards }: CarouselProps) {
           </button>
 
           <button className="sm:hidden rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 drop-shadow-lg">
-            {tailMobile!.index < 1 ? 1 : tailMobile!.index}
+            {(tailMobile ? tailMobile!.index : -1) < 1
+              ? 1
+              : tailMobile
+              ? tailMobile!.index + 1
+              : 0}
           </button>
         </div>
       </div>
