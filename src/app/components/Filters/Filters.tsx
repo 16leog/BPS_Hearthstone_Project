@@ -298,83 +298,18 @@ export default function Filters({ cardClass, cards }: FilterProps) {
   }
 
   function useKeywordFilter(mechanics: string) {
-    if (mechanics === 'Any Keyword') {
-      userFilteredCards(cards);
-    } else if (mechanics === 'Adapt') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Adapt';
-          }
-        })
-      );
-    } else if (mechanics === 'Battlecry') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Battlecry';
-          }
-        })
-      );
-    } else if (mechanics === 'Charge') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Charge';
-          }
-        })
-      );
-    } else if (mechanics === 'Colosal +X') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Colosal +X';
-          }
-        })
-      );
-    } else if (mechanics === 'Combo') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Combo';
-          }
-        })
-      );
-    } else if (mechanics === 'Corpse') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Corpse';
-          }
-        })
-      );
-    } else if (mechanics === 'Corrupt') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Corrupt';
-          }
-        })
-      );
-    } else if (mechanics === 'Counter') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Counter';
-          }
-        })
-      );
-    } else if (mechanics === 'Deathrattle') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Deathrattle';
-          }
-        })
-      );
-    }
-    toggleKeywords();
+  if (mechanics === 'Any Keyword') {
+    userFilteredCards(originalCards);
+  } else {
+    userFilteredCards(
+      originalCards.filter(card => 
+        card.mechanics && card.mechanics.some((mech: { name: string; }) => mech.name === mechanics)
+      )
+    );
   }
+  toggleKeywords();
+}
+
 
   return (
     <div className=" max-w-full">
@@ -803,7 +738,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
         {activeFilters.map((filter, index) => (
           <div key={index} className="text-white underline">
             {filter}
-            <button onClick={() => clearFilter(index)}>x</button>
+            <button onClick={() => clearFilter(index)}>X</button>
           </div>
         ))}
       </div>
