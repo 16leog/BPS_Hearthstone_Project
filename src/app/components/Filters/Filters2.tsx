@@ -82,7 +82,8 @@ type FilterProps = {
 };
 
 export default function Filters2({ cardClass, cards }: FilterProps) {
-  const [filteredCards, userFilteredCards] = useState(cards);
+  const [originalCards, setOriginalCards] = useState(cards);
+  const [filteredCards, userFilteredCards] = useState(originalCards);
   const [filterToggle, userFilterToggle] = useState(false);
   const [manaToggle, userManaToggle] = useState(false);
   const [attackToggle, userAttackToggle] = useState(false);
@@ -94,6 +95,21 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
   const [toggle, setToggle] = useState(false);
   const [manafilter, userManafilter] = useState(mana[0]);
 
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+
+  function clearAllFilters() {
+    userFilteredCards(cards);
+    setActiveFilters([]);
+  }
+
+  function clearFilter(index: number) {
+    const newFilters = [...activeFilters];
+    newFilters.splice(index, 1);
+    setActiveFilters(newFilters);
+
+    // Since we're clearing the filter, revert to original cards
+    userFilteredCards(cards);
+  }
   const [windowSize, setWindowSize] = useState<{
     width?: number;
     height?: number;
@@ -211,254 +227,87 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
   }
 
   function userAttackFilter(atk: string) {
+    // Instead of filtering from 'filteredCards', always filter from the 'originalCards'
     if (atk === 'Any Attack') {
-      userFilteredCards(cards);
-    } else if (atk === 'Attack: 0') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 0 || card.attack === '0')
-      );
-    } else if (atk === 'Attack: 1') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 1 || card.attack === '1')
-      );
-    } else if (atk === 'Attack: 2') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 2 || card.attack === '2')
-      );
-    } else if (atk === 'Attack: 3') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 3 || card.attack === '3')
-      );
-    } else if (atk === 'Attack: 4') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 4 || card.attack === '4')
-      );
-    } else if (atk === 'Attack: 5') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 5 || card.attack === '5')
-      );
-    } else if (atk === 'Attack: 6') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 6 || card.attack === '6')
-      );
-    } else if (atk === 'Attack: 7') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 7 || card.attack === '7')
-      );
-    } else if (atk === 'Attack: 8') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 8 || card.attack === '8')
-      );
-    } else if (atk === 'Attack: 9') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.attack === 9 || card.attack === '9')
-      );
-    } else if (atk === 'Attack: 10+') {
-      userFilteredCards(
-        filteredCards.filter(
-          (card) => card.attack >= 10 || card.attack === '10'
-        )
-      );
+      // Reset to the original data
+      userFilteredCards(originalCards);
+    } else {
+      let attackValue = parseInt(atk.split(' ')[1]);
+      if (isNaN(attackValue)) {
+        // Handles the 'Attack: 10+' case
+        userFilteredCards(
+          originalCards.filter((card) => parseInt(card.attack) >= 10)
+        );
+      } else {
+        userFilteredCards(
+          originalCards.filter((card) => parseInt(card.attack) === attackValue)
+        );
+      }
     }
+
+    // Set the active filter (for displaying the chip)
+    setActiveFilters([atk]);
     toggleAttack();
   }
   function userHealthFilter(hlth: string) {
     if (hlth === 'Any Health') {
-      userFilteredCards(cards);
-    } else if (hlth === 'Health: 0') {
+      userFilteredCards(originalCards);
+      return;
+    }
+
+    let healthValue = parseInt(hlth.split(' ')[1]);
+
+    if (isNaN(healthValue)) {
       userFilteredCards(
-        filteredCards.filter((card) => card.health === 0 || card.health === '0')
+        originalCards.filter((card) => parseInt(card.health) >= 10)
       );
-    } else if (hlth === 'Health: 1') {
+    } else {
       userFilteredCards(
-        filteredCards.filter((card) => card.health === 1 || card.health === '1')
-      );
-    } else if (hlth === 'Health: 2') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.health === 2 || card.health === '2')
-      );
-    } else if (hlth === 'Health: 3') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.health === 3 || card.health === '3')
-      );
-    } else if (hlth === 'Health: 4') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.health === 4 || card.health === '4')
-      );
-    } else if (hlth === 'Health: 5') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.health === 5 || card.health === '5')
-      );
-    } else if (hlth === 'Health: 6') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.health === 6 || card.health === '6')
-      );
-    } else if (hlth === 'Health: 7') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.health === 7 || card.health === '7')
-      );
-    } else if (hlth === 'Health: 8') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.health === 8 || card.health === '8')
-      );
-    } else if (hlth === 'Health: 9') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.health === 9 || card.health === '9')
-      );
-    } else if (hlth === 'Health: 10+') {
-      userFilteredCards(
-        filteredCards.filter(
-          (card) => card.health >= 10 || card.health === '10'
-        )
+        originalCards.filter((card) => parseInt(card.health) === healthValue)
       );
     }
+
     toggleHealth();
   }
+
   function userTypeFilter(type: string) {
     if (type === 'Any Type') {
-      userFilteredCards(cards);
-    } else if (type === 'Hero') {
-      userFilteredCards(filteredCards.filter((card) => card.type === 'Hero'));
-    } else if (type === 'Minion') {
-      userFilteredCards(filteredCards.filter((card) => card.type === 'Minion'));
-    } else if (type === 'Spell') {
-      userFilteredCards(filteredCards.filter((card) => card.type === 'Spell'));
-    } else if (type === 'Weapon') {
-      userFilteredCards(filteredCards.filter((card) => card.type === 'Weapon'));
-    } else if (type === 'Location') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.type === 'Location')
-      );
+      userFilteredCards(originalCards);
+    } else {
+      userFilteredCards(originalCards.filter((card) => card.type === type));
     }
     toggleCardType();
   }
 
   function userMinionFilter(race: string) {
     if (race === 'All') {
-      userFilteredCards(cards);
-    } else if (race === 'Beast') {
-      userFilteredCards(filteredCards.filter((card) => card.race === 'Beast'));
-    } else if (race === 'Demon') {
-      userFilteredCards(filteredCards.filter((card) => card.race === 'Demon'));
-    } else if (race === 'Dragon') {
-      userFilteredCards(filteredCards.filter((card) => card.race === 'Dragon'));
-    } else if (race === 'Elemental') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.race === 'Elemental')
-      );
-    } else if (race === 'Mech') {
-      userFilteredCards(filteredCards.filter((card) => card.race === 'Mech'));
-    } else if (race === 'Murloc') {
-      userFilteredCards(filteredCards.filter((card) => card.race === 'Murloc'));
-    } else if (race === 'Naga') {
-      userFilteredCards(filteredCards.filter((card) => card.race === 'Naga'));
-    } else if (race === 'Pirate') {
-      userFilteredCards(filteredCards.filter((card) => card.race === 'Pirate'));
-    } else if (race === 'Quilboar') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.race === 'Quilboar')
-      );
-    } else if (race === 'Totem') {
-      userFilteredCards(filteredCards.filter((card) => card.race === 'Totem'));
-    } else if (race === 'Undead') {
-      userFilteredCards(filteredCards.filter((card) => card.race >= 'Undead'));
+      userFilteredCards(originalCards);
+    } else {
+      userFilteredCards(originalCards.filter((card) => card.race === race));
     }
     toggleMinionType();
   }
   function useRarityFilter(rarity: string) {
     if (rarity === 'Any Rarity') {
-      userFilteredCards(cards);
-    } else if (rarity === 'Common') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.rarity === 'Common')
-      );
-    } else if (rarity === 'Free') {
-      userFilteredCards(filteredCards.filter((card) => card.rarity === 'Free'));
-    } else if (rarity === 'Rare') {
-      userFilteredCards(filteredCards.filter((card) => card.rarity === 'Rare'));
-    } else if (rarity === 'Epic') {
-      userFilteredCards(filteredCards.filter((card) => card.rarity === 'Epic'));
-    } else if (rarity === 'Legendary') {
-      userFilteredCards(
-        filteredCards.filter((card) => card.rarity === 'Legendary')
-      );
+      userFilteredCards(originalCards);
+    } else {
+      userFilteredCards(originalCards.filter((card) => card.rarity === rarity));
     }
     toggleRarity();
   }
+
   function useKeywordFilter(mechanics: string) {
     if (mechanics === 'Any Keyword') {
-      userFilteredCards(cards);
-    } else if (mechanics === 'Adapt') {
+      userFilteredCards(originalCards);
+    } else {
       userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Adapt';
-          }
-        })
-      );
-    } else if (mechanics === 'Battlecry') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Battlecry';
-          }
-        })
-      );
-    } else if (mechanics === 'Charge') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Charge';
-          }
-        })
-      );
-    } else if (mechanics === 'Colosal +X') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Colosal +X';
-          }
-        })
-      );
-    } else if (mechanics === 'Combo') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Combo';
-          }
-        })
-      );
-    } else if (mechanics === 'Corpse') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Corpse';
-          }
-        })
-      );
-    } else if (mechanics === 'Corrupt') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Corrupt';
-          }
-        })
-      );
-    } else if (mechanics === 'Counter') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Counter';
-          }
-        })
-      );
-    } else if (mechanics === 'Deathrattle') {
-      userFilteredCards(
-        filteredCards.filter((card) => {
-          if (card.mechanics) {
-            card.mechanics[0].name === 'Deathrattle';
-          }
-        })
+        originalCards.filter(
+          (card) =>
+            card.mechanics &&
+            card.mechanics.some(
+              (mech: { name: string }) => mech.name === mechanics
+            )
+        )
       );
     }
     toggleKeywords();
@@ -618,7 +467,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
       </div>
       <div className="  max-sm:hidden flex flex-row w-full justify-around items-start max-lg:flex-col max-lg:gap-5"></div>
       {/* Mana bar */}
-      <div className="flex flex-row items-center gap-1 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden justify-center">
+      <div className="flex flex-row items-center gap-1 mx-20  max-lg:gap-5 max-sm:hidden justify-center">
         <p className="text-cyan-400 text-xl font-outline-1">Mana</p>
         <div className="flex flex-row justify-center items-center bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 rounded-full px-1 text-white h-16">
           <div className=" flex flex-row justify-between bg-brown  rounded-full h-[58px] ">
@@ -759,7 +608,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
 
         {/*Sortby Row */}
         <div className="flex flex-row gap-1 items-start ">
-          <div className=" flex my-4 font-thin text-white text-l mx-auto">
+          <div className=" flex my-4 font-thin text-white text-l ">
             <a className={montserrat.className}>Sort By:</a>
           </div>
           <div className=" flex flex-col items-center ">
@@ -791,7 +640,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
       {/* Filters row */}
       {filterToggle && (
         <div className=" flex justify-around py-5 grid-cols-3 max-sm:hidden">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col">
             <FilterButton
               text={'Attack'}
               width={'52'}
@@ -886,6 +735,14 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
           </div>
         </div>
       )}
+      <div className="chips-container">
+        {activeFilters.map((filter, index) => (
+          <div key={index} className="text-white underline">
+            {filter}
+            <button onClick={() => clearFilter(index)}>X</button>
+          </div>
+        ))}
+      </div>
       {windowSize.width! > 640 ? (
         <GridContainer cards={filteredCards}></GridContainer>
       ) : (

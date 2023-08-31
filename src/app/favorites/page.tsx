@@ -1,5 +1,3 @@
-import React from 'react';
-import GridContainer from '../components/Carousel/GridContainer';
 import { CardClass } from '../../../types';
 import Filters2 from '../components/Filters/Filters2';
 

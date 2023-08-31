@@ -267,7 +267,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
         originalCards.filter((card) => parseInt(card.health) === healthValue)
       );
     }
-
+    setActiveFilters([hlth]);
     toggleHealth();
   }
 
@@ -277,6 +277,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
     } else {
       userFilteredCards(originalCards.filter((card) => card.type === type));
     }
+    setActiveFilters([type]);
     toggleCardType();
   }
 
@@ -286,6 +287,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
     } else {
       userFilteredCards(originalCards.filter((card) => card.race === race));
     }
+    setActiveFilters([race]);
     toggleMinionType();
   }
   function useRarityFilter(rarity: string) {
@@ -294,22 +296,27 @@ export default function Filters({ cardClass, cards }: FilterProps) {
     } else {
       userFilteredCards(originalCards.filter((card) => card.rarity === rarity));
     }
+    setActiveFilters([rarity]);
     toggleRarity();
   }
 
   function useKeywordFilter(mechanics: string) {
-  if (mechanics === 'Any Keyword') {
-    userFilteredCards(originalCards);
-  } else {
-    userFilteredCards(
-      originalCards.filter(card => 
-        card.mechanics && card.mechanics.some((mech: { name: string; }) => mech.name === mechanics)
-      )
-    );
+    if (mechanics === 'Any Keyword') {
+      userFilteredCards(originalCards);
+    } else {
+      userFilteredCards(
+        originalCards.filter(
+          (card) =>
+            card.mechanics &&
+            card.mechanics.some(
+              (mech: { name: string }) => mech.name === mechanics
+            )
+        )
+      );
+    }
+    setActiveFilters([mechanics]);
+    toggleKeywords();
   }
-  toggleKeywords();
-}
-
 
   return (
     <div className=" max-w-full">
@@ -734,14 +741,30 @@ export default function Filters({ cardClass, cards }: FilterProps) {
         </div>
       )}
 
-      <div className="chips-container">
+      <div className="flex flex-wrap items-center">
         {activeFilters.map((filter, index) => (
-          <div key={index} className="text-white underline">
+          <div
+            key={index}
+            className="bg-chip rounded-full w-24 h-8 mx-12 text-xs text-center items-center"
+          >
             {filter}
-            <button onClick={() => clearFilter(index)}>X</button>
+            <button onClick={() => clearFilter(index)}>
+              <a className="text-md text-center"> x </a>
+            </button>
           </div>
         ))}
+        {activeFilters.length > 0 && (
+          <div>
+            <p
+              className="underline cursor-pointer text-xs text-white"
+              onClick={() => clearFilter(-1)}
+            >
+              <a className={montserrat.className}>CLEAR ALL</a>
+            </p>
+          </div>
+        )}
       </div>
+
       {windowSize.width! > 640 ? (
         <GridContainer cards={filteredCards}></GridContainer>
       ) : (

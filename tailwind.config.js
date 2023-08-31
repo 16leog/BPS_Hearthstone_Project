@@ -53,6 +53,7 @@ module.exports = {
         button_bg: '#405384',
         card: '#bea27f',
         card_bg: '#7a5b35',
+        chip: '#ffe792',
       },
       fontFamily: {
         aclonica: ['var[--font-aclonica]'],
