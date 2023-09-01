@@ -51,10 +51,10 @@ export default function Maps({
                   ? 'glowing map icon_2023-09-01/glowing map icon.webp'
                   : 'logo icon_2023-08-02/logo icon.webp',
             }}
-            options={{
-              animation:
-                hoveredMarker === index ? google.maps.Animation.DROP : null,
-            }}
+            // options={{
+            //   animation:
+            //     hoveredMarker === index ? google.maps.Animation.DROP : null,
+            // }}
           />
         ))}
       </GoogleMap>
