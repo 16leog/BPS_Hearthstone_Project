@@ -314,7 +314,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
           (card) =>
             card.mechanics &&
             card.mechanics.some(
-              (mech: { name: string }) => mech.name === mechanics
+              (mech: { name: string }) => mech && mech.name === mechanics
             )
         )
       );
