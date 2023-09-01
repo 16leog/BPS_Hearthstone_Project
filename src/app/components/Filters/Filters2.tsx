@@ -110,6 +110,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
     // Since we're clearing the filter, revert to original cards
     userFilteredCards(cards);
   }
+
   const [windowSize, setWindowSize] = useState<{
     width?: number;
     height?: number;
@@ -216,14 +217,19 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
     userMinionTypeToggle(false);
     userRarityToggle(false);
   }
-  function userManaFilter() {
-    if (manafilter === mana[0]) {
-      toggleMana();
-      userManafilter(mana[1]);
-      toggleMana();
-    } else if (manafilter === mana[1]) {
-      userManafilter(mana[0]);
+  function userManaFilter(selectedMana: string | number) {
+    if (selectedMana === 'Any Mana') {
+      userFilteredCards(originalCards);
+    } else if (selectedMana === '10+') {
+      userFilteredCards(
+        originalCards.filter((card) => parseInt(card.mana) >= 10)
+      );
+    } else {
+      userFilteredCards(
+        originalCards.filter((card) => parseInt(card.mana) === selectedMana)
+      );
     }
+    setActiveFilters(['Mana: ' + selectedMana]);
   }
 
   function userAttackFilter(atk: string) {
@@ -266,7 +272,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
         originalCards.filter((card) => parseInt(card.health) === healthValue)
       );
     }
-
+    setActiveFilters([hlth]);
     toggleHealth();
   }
 
@@ -276,6 +282,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
     } else {
       userFilteredCards(originalCards.filter((card) => card.type === type));
     }
+    setActiveFilters([type]);
     toggleCardType();
   }
 
@@ -285,6 +292,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
     } else {
       userFilteredCards(originalCards.filter((card) => card.race === race));
     }
+    setActiveFilters([race]);
     toggleMinionType();
   }
   function useRarityFilter(rarity: string) {
@@ -293,6 +301,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
     } else {
       userFilteredCards(originalCards.filter((card) => card.rarity === rarity));
     }
+    setActiveFilters([rarity]);
     toggleRarity();
   }
 
@@ -310,6 +319,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
         )
       );
     }
+    setActiveFilters([mechanics]);
     toggleKeywords();
   }
 
@@ -326,7 +336,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
           </p>
         </button>
         {toggle && (
-          <div className="sm:hidden animate-open-menu absolute bg-brown bg-cover bg-opacity-80 w-full h-full text-4xl flex flex-col items-center top-0 left-0 z-30">
+          <div className="sm:hidden animate-open-menu absolute bg-brown bg-cover bg-opacity-80 w-full h-full text-4xl flex flex-col items-center top-[100%] left-0 z-30">
             <button
               className=" place-self-end p-4 text-white"
               onClick={handleToggle}
@@ -362,7 +372,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
                 funct={toggleFilter}
               ></FilterButton>
               {filterToggle && (
-                <div className="grid max-sm:flex max-sm:flex-col max-sm:gap-1 max-sm:p-0   lg:grid-cols-6 grid-cols-3">
+                <div className="grid max-sm:flex max-sm:flex-col  max-sm:gap-1 max-sm:p-0   lg:grid-cols-6 grid-cols-3">
                   <div className="flex flex-col ">
                     <FilterButton
                       text={'Attack'}
@@ -395,7 +405,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
                       ></FilterScroll>
                     )}
                   </div>
-                  <div className="flex flex-col ">
+                  <div className="flex flex-col">
                     <FilterButton
                       text={'Card Type'}
                       width={'52'}
@@ -411,7 +421,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
                       ></FilterScroll>
                     )}
                   </div>
-                  <div className="flex flex-col ">
+                  <div className="flex flex-col">
                     <FilterButton
                       text={'Minion Type'}
                       width={'52'}
@@ -427,7 +437,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
                       ></FilterScroll>
                     )}
                   </div>
-                  <div className="flex flex-col ">
+                  <div className="flex flex-col">
                     <FilterButton
                       text={'Rarity'}
                       width={'52'}
@@ -443,7 +453,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
                       ></FilterScroll>
                     )}
                   </div>
-                  <div className="flex flex-col ">
+                  <div className="flex flex-col">
                     <FilterButton
                       text={'Keywords'}
                       width={'52'}
@@ -465,141 +475,24 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
           </div>
         )}
       </div>
-      <div className="  max-sm:hidden flex flex-row w-full justify-around items-start max-lg:flex-col max-lg:gap-5"></div>
+      <div className="  max-sm:hidden flex flex-row w-full justify-around items-start  max-lg:gap-5"></div>
       {/* Mana bar */}
-      <div className="flex flex-row items-center gap-1 mx-20  max-lg:gap-5 max-sm:hidden justify-center">
+      <div className="flex flex-row items-center gap-1 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden justify-center">
         <p className="text-cyan-400 text-xl font-outline-1">Mana</p>
         <div className="flex flex-row justify-center items-center bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 rounded-full px-1 text-white h-16">
           <div className=" flex flex-row justify-between bg-brown  rounded-full h-[58px] ">
-            <button
-              className=" font-outline-1 mx-2 w-6 text-l drop-shadow-lg "
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 0 || card.mana! === '0'
-                  )
-                );
-              }}
-            >
-              0
-            </button>
-            <button
-              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 1 || card.mana! === '1'
-                  )
-                );
-              }}
-            >
-              1
-            </button>
-            <button
-              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 2 || card.mana! === '2'
-                  )
-                );
-              }}
-            >
-              2
-            </button>
-            <button
-              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 3 || card.mana! === '3'
-                  )
-                );
-              }}
-            >
-              3
-            </button>
-            <button
-              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 4 || card.mana! === '4'
-                  )
-                );
-              }}
-            >
-              4
-            </button>
-            <button
-              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 5 || card.mana! === '5'
-                  )
-                );
-              }}
-            >
-              5
-            </button>
-            <button
-              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 6 || card.mana! === '6'
-                  )
-                );
-              }}
-            >
-              6
-            </button>
-            <button
-              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 7 || card.mana! === '7'
-                  )
-                );
-              }}
-            >
-              7
-            </button>
-            <button
-              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 8 || card.mana! === '8'
-                  )
-                );
-              }}
-            >
-              8
-            </button>
-            <button
-              className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! === 9 || card.mana! === '9'
-                  )
-                );
-              }}
-            >
-              9
-            </button>
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((manaValue) => (
+              <button
+                key={manaValue}
+                className="font-outline-1 mx-2 w-6 text-l drop-shadow-lg"
+                onClick={() => userManaFilter(manaValue)}
+              >
+                {manaValue}
+              </button>
+            ))}
             <button
               className="font-outline-1 ml-2 mr-3 w-6 text-l drop-shadow-lg"
-              onClick={() => {
-                userFilteredCards(
-                  filteredCards.filter(
-                    (card) => card.mana! >= 10 || card.mana! === '10'
-                  )
-                );
-              }}
+              onClick={() => userManaFilter('10+')}
             >
               10+
             </button>
@@ -611,7 +504,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
           <div className=" flex my-4 font-thin text-white text-l ">
             <a className={montserrat.className}>Sort By:</a>
           </div>
-          <div className=" flex flex-col items-center ">
+          <div className=" flex flex-col items-center  ">
             <FilterButton
               text={manafilter}
               width={'64'}
@@ -625,7 +518,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
               <FilterScroll list={mana} funct={userManaFilter}></FilterScroll>
             )}
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center ">
             <FilterButton
               text={'Filter'}
               width={'52'}
@@ -639,8 +532,8 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
       </div>
       {/* Filters row */}
       {filterToggle && (
-        <div className=" flex justify-around py-5 grid-cols-3 max-sm:hidden">
-          <div className="flex flex-col">
+        <div className="flex justify-around  py-5  grid-cols-3  max-sm:hidden">
+          <div className="flex flex-col ">
             <FilterButton
               text={'Attack'}
               width={'52'}
@@ -735,15 +628,35 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
           </div>
         </div>
       )}
-      <div className="chips-container">
+
+      <div className="flex flex-wrap items-center">
         {activeFilters.map((filter, index) => (
-          <div key={index} className="text-white underline">
-            {filter}
-            <button onClick={() => clearFilter(index)}>X</button>
+          <div
+            key={index}
+            className="bg-chip flex rounded-full w-24 h-8 mx-12 text-xs text-center items-center justify-center"
+          >
+            <button onClick={() => clearFilter(index)}>
+              <p className="justify-center text-center items-center">
+                {filter} x
+              </p>
+            </button>
           </div>
         ))}
+        {activeFilters.length > 0 && (
+          <div>
+            <p
+              className="underline cursor-pointer text-xs text-white"
+              onClick={() => clearFilter(-1)}
+            >
+              <a className={montserrat.className}>CLEAR ALL</a>
+            </p>
+          </div>
+        )}
       </div>
-      {windowSize.width! > 640 ? (
+
+      {filteredCards.length === 0 ? (
+        <div></div> // This div will be displayed if filteredCards is empty
+      ) : windowSize.width! > 640 ? (
         <GridContainer cards={filteredCards}></GridContainer>
       ) : (
         <MobileCarousel cards={filteredCards}></MobileCarousel>
