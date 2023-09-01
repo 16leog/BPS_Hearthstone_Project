@@ -309,15 +309,16 @@ export default function Filters({ cardClass, cards }: FilterProps) {
     if (mechanics === 'Any Keyword') {
       userFilteredCards(originalCards);
     } else {
-      userFilteredCards(
-        originalCards.filter(
-          (card) =>
-            card.mechanics &&
-            card.mechanics.some(
-              (mech: { name: string }) => mech.name === mechanics
-            )
-        )
+      const filteredCards = originalCards.filter(
+        (card) =>
+          card.mechanics &&
+          card.mechanics.some((mech: { name: string }) => {
+            console.log('Mechanic:', mech);
+            return mech && mech.name === mechanics;
+          })
       );
+      console.log('Filtered Cards:', filteredCards);
+      userFilteredCards(filteredCards);
     }
     setActiveFilters([mechanics]);
     toggleKeywords();
