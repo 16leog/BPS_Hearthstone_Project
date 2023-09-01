@@ -15,7 +15,8 @@
         "args": "after-used",
         "argsIgnorePattern": "^_"
       }
-    ]
+    ],
+    "no-undef": "off"
   },
   "overrides": [
     {

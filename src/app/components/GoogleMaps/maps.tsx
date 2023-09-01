@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { PlaceClass } from '../../../../types';
 
 const containerStyle = {
-  width: '100vw',   // viewport width
-  height: '100vh',  // viewport height
+  width: '100vw', // viewport width
+  height: '100vh', // viewport height
 };
 
 type GoogleMapProps = {
@@ -30,11 +30,7 @@ export default function Maps({
 
   return isLoaded ? (
     <div className="absolute  w-full h-full no-scrollbar">
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={14}
-      >
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={14}>
         {places.map((place, index) => (
           <Marker
             key={index}
@@ -51,10 +47,10 @@ export default function Maps({
                   ? 'glowing map icon_2023-09-01/glowing map icon.webp'
                   : 'logo icon_2023-08-02/logo icon.webp',
             }}
-            // options={{
-            //   animation:
-            //     hoveredMarker === index ? google.maps.Animation.DROP : null,
-            // }}
+            options={{
+              animation:
+                hoveredMarker === index ? google.maps.Animation.DROP : null,
+            }}
           />
         ))}
       </GoogleMap>
