@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import homepageLogo2 from 'public/homepage_logo 2_2023-07-21/homepage_logo 2.webp';
 import { useEffect, useState } from 'react';
@@ -11,18 +12,16 @@ export interface INavbar {
 export default function Navbar() {
   const router = useRouter();
   const [toggle, setToggle] = useState(false);
-  const [center, setCenter] = useState({ lat: 0, lng: 0});
+  const [center, setCenter] = useState({ lat: 0, lng: 0 });
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setCenter({
         lat: position.coords.latitude,
         lng: position.coords.longitude,
-       
       });
       console.log('center', center);
     });
-   
   }, []);
   return (
     <>
@@ -45,12 +44,15 @@ export default function Navbar() {
           >
             FAVORITES
           </button>
-          <button
-            className=" font-aclonica hover:text-goldFont"
-            onClick={() => router.push('/shops')}
+          <Link
+            href={{
+              pathname: `/shops/`,
+              query: { lat: center.lat, lng: center.lng },
+            }}
+            className=" font-aclonica hover:text-accents"
           >
             SHOPS
-          </button>
+          </Link>
         </div>
         <button
           className="relative right-8 sm:hidden w-10 h-10"
@@ -73,12 +75,15 @@ export default function Navbar() {
           >
             FAVORITES
           </button>
-          <button
-            className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8"
-            onClick={() => router.push('/shops')}
+          <Link
+            href={{
+              pathname: `/shops/`,
+              query: { lat: center.lat, lng: center.lng },
+            }}
+            className=" font-montserrat active:text-accents text-white underline underline-offset-8"
           >
             SHOPS
-          </button>
+          </Link>
         </div>
       )}
     </>

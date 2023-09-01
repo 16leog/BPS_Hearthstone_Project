@@ -28,11 +28,8 @@ export default async function Page({
   console.log('places', places);
   return (
     <>
-      <div className="w-full overflow-y-hidden flex flex-col">
-        {/* hidden */}
-        <div className="">
-          <ScrollMaps places={places} />
-        </div>
+      <div className="">
+        <ScrollMaps places={places} />
       </div>
     </>
   );

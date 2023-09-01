@@ -43,12 +43,14 @@ export default function ScrollMaps({ places }: props) {
   const handleShowList = () => {
     setShowList(true);
   };
-
+  function handleShowDetails(place: PlaceClass) {
+    goToDetail(place), setShowDetail(true);
+  }
   console.log('SCROLLMAPS PLACES:', place);
   return (
     <>
     {( showList &&
-      <div className="w-full absolute top-50 z-10 md:flex flex-col overflow-y-scroll text-shadow-lg bg-cover bg-blue-950 bg-homepageBackground shadow-black  py-3 text-white md:w-1/4 h-screen">
+      <div className="w-full absolute top-50 z-10 md:flex flex-col overflow-y-scroll no-scrollbar text-shadow-lg bg-cover bg-blue-950 bg-homepageBackground shadow-black  py-3 text-white md:w-1/4 h-screen">
         <div className="flex items-center mt-12 md:justify-center">
           <Image
             className="md:hidden mx-9"
@@ -70,7 +72,7 @@ export default function ScrollMaps({ places }: props) {
             />
           </div>
         ) : (
-          <div className="mt-12 mx-9">
+          <div className="mt-12 mx-7 ">
             {/* ISERT A LOOP TO POPULATE THE SIDE MENU */}
             {places.map((place, index) => (
               <div key={index}>
@@ -91,7 +93,7 @@ export default function ScrollMaps({ places }: props) {
         )}
       </div>
       )}
-      <Maps places={places} center={center} clickBack={handleShowList}></Maps>
+      <Maps places={places} center={center} clickBack={handleShowList} showDetails={handleShowDetails}></Maps>
     </>
   );
 }
