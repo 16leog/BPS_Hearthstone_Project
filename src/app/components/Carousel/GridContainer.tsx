@@ -108,59 +108,39 @@ export default function GridContainer({ cards }: CarouselProps) {
         <div className=" flex flex-row justify-between gap-10 rounded-full h-[58px] ">
           {tail?.index && tail.index > 1 ? (
             <>
-              <button
-                className={`${
-                  startIndex < 0 ? 'invisible' : ''
-                } font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-xl drop-shadow-lg`}
-                onClick={() => handleFirst()}
-              >
-                {startIndex + 1}
-              </button>
-              <button
-                className={`${
-                  startIndex + 2 > tail!.index ? 'invisible' : ''
-                } ${
-                  startIndex < -1 ? 'hidden' : ''
-                } font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-xl drop-shadow-lg`}
-                onClick={() => handleSecond()}
-              >
-                {startIndex + 2}
-              </button>
-              <button
-                className={`${
-                  startIndex + 3 > tail!.index ? 'invisible' : ''
-                } ${
-                  startIndex < 0 ? 'hidden' : ''
-                } font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-xl drop-shadow-lg`}
-                onClick={() => handleThird()}
-              >
-                {startIndex + 3}
-              </button>
-              <button
-                className={`${
-                  startIndex + 4 > tail!.index ? 'invisible' : ''
-                }  ${
-                  startIndex < 0 ? 'hidden' : ''
-                } font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-xl drop-shadow-lg`}
-                onClick={() => handleFourth()}
-              >
-                {startIndex + 4}
-              </button>
-              <button
-                className={`${
-                  startIndex + 5 > tail!.index ? 'invisible' : ''
-                } font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-xl drop-shadow-lg`}
-                onClick={() => handleFifth()}
-              >
-                {startIndex + 5}
-              </button>
+              {[1, 2, 3, 4, 5].map((pageNumber) => (
+                <button
+                  key={pageNumber}
+                  className={`font-outline-1 rounded-lg bg-gradient-to-b ${
+                    startIndex + pageNumber === currentSlide
+                      ? 'from-gold via-gold_2 via-80% to-gold_3'
+                      : ''
+                  } ${
+                    startIndex + pageNumber > tail!.index ||
+                    startIndex + pageNumber < 1
+                      ? 'invisible'
+                      : ''
+                  } mr-1 w-12 text-xl drop-shadow-lg`}
+                  onClick={() => setCurrentSlide(startIndex + pageNumber)}
+                >
+                  {startIndex + pageNumber}
+                </button>
+              ))}
+              {/* ... button */}
               <button
                 className="font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-xl drop-shadow-lg"
                 onClick={() => handleNextIndex()}
               >
                 ...
               </button>
-              <button className="font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-xl drop-shadow-lg">
+              {/* Last page button */}
+              <button
+                className={`font-outline-1 rounded-lg bg-gradient-to-b ${
+                  tail!.index === currentSlide
+                    ? 'from-gold via-gold_2 via-80% to-gold_3'
+                    : ''
+                } mr-1 w-12 text-xl drop-shadow-lg`}
+              >
                 {tail!.index}
               </button>
             </>
