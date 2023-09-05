@@ -1,5 +1,4 @@
 import { CardClass } from '../../../types';
-import Filters from '../components/Filters/Filters';
 import Filters2 from '../components/Filters/Filters2';
 
 type props = {

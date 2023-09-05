@@ -1,10 +1,10 @@
 'use client';
 import Image from 'next/image';
-import homepageLogo from 'public/homepage_logo 1_2023-07-21/homepage_logo 1@3x.webp';
-import Searchbar from './components/Searchbar/Searchbar';
-import HomeGrid from './components/HomeGrid/HomeGrid';
 import { useRouter } from 'next/navigation';
+import homepageLogo from 'public/homepage_logo 1_2023-07-21/homepage_logo 1@3x.webp';
 import { useEffect } from 'react';
+import HomeGrid from './components/HomeGrid/HomeGrid';
+import Searchbar from './components/Searchbar/Searchbar';
 
 export default function Home() {
   const router = useRouter();
