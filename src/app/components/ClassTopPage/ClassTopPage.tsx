@@ -1,6 +1,6 @@
-'use client'
-import React, { useEffect, useState } from 'react';
+'use client';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import GoldButton from '../GoldButton/GoldButton';
 
 type props = {
@@ -84,7 +84,6 @@ export default function ClassTopPage({ cardClass }: props) {
   function handleToggle() {
     toggle ? setToggle(false) : setToggle(true);
   }
-
 
   // Dynamic import for image
   useEffect(() => {

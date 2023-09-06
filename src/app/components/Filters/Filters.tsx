@@ -476,7 +476,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
           </div>
         )}
       </div>
-      <div className="  max-sm:hidden flex flex-row w-full justify-around items-start  max-lg:gap-5"></div>
+      <div className="  max-sm:hidden absolute z-10 flex flex-row w-full justify-around items-start  max-lg:gap-5"></div>
       {/* Mana bar */}
       <div className="flex flex-row items-center gap-1 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden justify-center">
         <p className="text-cyan-400 text-xl font-outline-1">Mana</p>

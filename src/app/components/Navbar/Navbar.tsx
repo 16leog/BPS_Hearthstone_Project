@@ -62,7 +62,7 @@ export default function Navbar() {
         </button>
       </nav>
       {toggle && (
-        <div className="sm:hidden animate-open-menu  absolute top-20 bg-navbarColor w-full h-screen text-4xl flex flex-col items-center justify-center gap-24 origin-top left-0 z-30">
+        <div className="sm:hidden animate-open-menu  absolute top-20 bg-navbarColor w-full h-full text-4xl flex flex-col items-center justify-center gap-24 origin-top left-0 z-30">
           <button
             className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8 "
             onClick={() => router.push('/')}

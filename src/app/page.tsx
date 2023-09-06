@@ -1,10 +1,10 @@
 'use client';
 import Image from 'next/image';
-import homepageLogo from 'public/homepage_logo 1_2023-07-21/homepage_logo 1@3x.webp';
-import Searchbar from './components/Searchbar/Searchbar';
-import HomeGrid from './components/HomeGrid/HomeGrid';
 import { useRouter } from 'next/navigation';
+import homepageLogo from 'public/homepage_logo 1_2023-07-21/homepage_logo 1@3x.webp';
 import { useEffect } from 'react';
+import HomeGrid from './components/HomeGrid/HomeGrid';
+import Searchbar from './components/Searchbar/Searchbar';
 
 export default function Home() {
   const router = useRouter();
@@ -18,8 +18,8 @@ export default function Home() {
     });
   }, []);
   return (
-    <main className="flex min-h-screen flex-col items-center bg-cover bg-homepageBackground">
-      <div className="m-8">
+    <main className="flex min-h-[91vh] justify-center flex-col items-center bg-cover bg-homepageBackground">
+      <div className="m-4">
         <Image
           src={homepageLogo}
           alt={'hearthstone'}

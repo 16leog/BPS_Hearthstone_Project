@@ -20,7 +20,7 @@ export default async function Favorites({ cardClass, cards }: props) {
       <h1 className=" max-sm:hidden font-aclonica z-10 mt-20 text-white sm:font-outline-4 sm:text-8xl text-shadow shadow-black text-5xl font-outline-1">
         FAVORITES
       </h1>
-      <Filters2 cardClass={cardClass} cards={res.data} />
+      <Filters2 cardClass={''} cards={res.data} />
     </div>
   );
 }
