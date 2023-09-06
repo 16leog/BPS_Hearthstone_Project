@@ -64,20 +64,22 @@ export default function GridContainer({ cards }: CarouselProps) {
     }
   }
   function handleFirst() {
-    setCurrentSlide(1);
+    setCurrentSlide(0);
   }
   function handleSecond() {
-    setCurrentSlide(2);
+    setCurrentSlide(1);
   }
   function handleThird() {
-    setCurrentSlide(3);
+    setCurrentSlide(2);
   }
   function handleFourth() {
-    setCurrentSlide(4);
+    setCurrentSlide(3);
   }
   function handleFifth() {
-    setCurrentSlide(5);
+    setCurrentSlide(4);
   }
+  
+  
 
   return (
     <>
