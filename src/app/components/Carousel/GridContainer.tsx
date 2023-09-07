@@ -1,7 +1,9 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import leftGlow from '../../../../public/Arrow left Glow.svg';
 import left from '../../../../public/Arrow left.svg';
+import rightGlow from '../../../../public/Arrow right Glow.svg';
 import right from '../../../../public/Arrow right.svg';
 import { CardClass, SplitIntoSmallerLists } from '../../../../types';
 import CarouselGrid from './CarouselGrid';
@@ -21,6 +23,9 @@ export default function GridContainer({ cards }: CarouselProps) {
     let e = document.getElementById(currentSlide.toString());
     e?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
   }, [currentSlide]);
+
+  const [isLeftHovered, setIsLeftHovered] = useState(false);
+  const [isRightHovered, setIsRightHovered] = useState(false);
 
   function handleNextIndex() {
     if (endIndex >= tail!.index) {
@@ -78,8 +83,6 @@ export default function GridContainer({ cards }: CarouselProps) {
   function handleFifth() {
     setCurrentSlide(4);
   }
-  
-  
 
   return (
     <>
@@ -96,14 +99,24 @@ export default function GridContainer({ cards }: CarouselProps) {
         <div className="relative bottom-14" id="6">
           {/* <CarouselGrid cardList={last ? last : []}></CarouselGrid> */}
         </div>
-        <button className="absolute left-0 " onClick={() => handleSlideLeft()}>
-          <Image src={left} alt="left" className=" "></Image>
-        </button>
+        {/* Left button with hover effect */}
         <button
-          className="absolute right-0 "
-          onClick={() => handleSlideRight()}
+          className="absolute left-0"
+          onClick={() => handleSlideLeft()}
+          onMouseEnter={() => setIsLeftHovered(true)} // Add this
+          onMouseLeave={() => setIsLeftHovered(false)} // Add this
         >
-          <Image src={right} alt="right"></Image>
+          <Image src={isLeftHovered ? leftGlow : left} alt="left"></Image>
+        </button>
+
+        {/* Right button with hover effect */}
+        <button
+          className="absolute right-0"
+          onClick={() => handleSlideRight()}
+          onMouseEnter={() => setIsRightHovered(true)} // Add this
+          onMouseLeave={() => setIsRightHovered(false)} // Add this
+        >
+          <Image src={isRightHovered ? rightGlow : right} alt="right"></Image>
         </button>
       </div>
       <div className="flex flex-row  justify-center items-centerrounded-full px-1 text-white h-16">

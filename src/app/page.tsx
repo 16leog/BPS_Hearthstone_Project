@@ -18,7 +18,7 @@ export default function Home() {
     });
   }, []);
   return (
-    <main className="flex min-h-[91.7vh] justify-center flex-col items-center bg-cover bg-homepageBackground">
+    <main className="flex min-h-[91vh] justify-center flex-col items-center bg-cover bg-homepageBackground">
       <div className="m-4">
         <Image
           src={homepageLogo}

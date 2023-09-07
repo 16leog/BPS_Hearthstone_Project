@@ -1,0 +1,43 @@
+<svg width="102" height="102" viewBox="0 0 102 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#fouxfr1nva)">
+        <g filter="url(#s9z3k1fyfc)" clip-path="url(#dtkj429fab)">
+            <path d="M42.5 72.25 63.75 51 42.5 29.75v42.5z" fill="#00D1FF"/>
+            <path d="M36 72.25v15.692l11.096-11.096 21.25-21.25L72.942 51l-4.596-4.596-21.25-21.25L36 14.058V72.25z" stroke="#00D1FF" stroke-width="13"/>
+        </g>
+        <g filter="url(#twzmystodd)" shape-rendering="crispEdges">
+            <path d="M42.5 72.25 63.75 51 42.5 29.75v42.5z" fill="#000" fill-opacity=".25"/>
+            <path d="M39.5 72.25v7.243l5.121-5.122 21.25-21.25L67.993 51l-2.122-2.121-21.25-21.25-5.121-5.122V72.25z" stroke="url(#u18yncrohe)" stroke-width="6"/>
+        </g>
+    </g>
+    <defs>
+        <clipPath id="fouxfr1nva">
+            <path fill="#fff" d="M0 0h102v102H0z"/>
+        </clipPath>
+        <clipPath id="dtkj429fab">
+            <path fill="#fff" d="M0 0h102v102H0z"/>
+        </clipPath>
+        <filter id="s9z3k1fyfc" x="21.5" y="-9.635" width="68.635" height="121.27" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_234_22639"/>
+        </filter>
+        <filter id="twzmystodd" x="32.5" y="15.265" width="43.735" height="79.471" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dy="4"/>
+            <feGaussianBlur stdDeviation="2"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+            <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_234_22639"/>
+            <feBlend in="SourceGraphic" in2="effect1_dropShadow_234_22639" result="shape"/>
+        </filter>
+        <linearGradient id="u18yncrohe" x1="53.125" y1="29.75" x2="53.125" y2="72.25" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FCD52D"/>
+            <stop offset=".099" stop-color="#FFE792"/>
+            <stop offset=".219" stop-color="#FCD52D"/>
+            <stop offset=".703" stop-color="#7A5B35"/>
+            <stop offset=".891" stop-color="#A38132"/>
+            <stop offset="1" stop-color="#FDD941"/>
+        </linearGradient>
+    </defs>
+</svg>
