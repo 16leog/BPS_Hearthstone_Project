@@ -11,7 +11,7 @@ type props = {
 export default function ClassBottomPage({ cardClass, cards }: props) {
   return (
     <div
-      className={`${classDataObj[cardClass].background} sm:bg-cover bg-center-custom bg-zoomed-in  flex flex-col md:min-h-[110vh] xl:min-h-[130vh]`}
+      className={`${classDataObj[cardClass].background} sm:bg-cover bg-center-custom bg-zoomed-in  flex flex-col max-sm:min-h-screen md:min-h-[110vh] xl:min-h-[130vh]`}
     >
       <div className="items-center justify-center">
         <Filters cardClass={cardClass} cards={cards ? cards : []} />

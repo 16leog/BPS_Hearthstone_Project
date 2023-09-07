@@ -24,7 +24,7 @@ export default async function Page({
   const cards = await getAllCards(key);
   if (cards === undefined) {
     return (
-      <div className="bg-homepageBackground bg-cover h-[90.5vh] md:h-[92.2vh] lg:h-[91vh]">
+      <div className="bg-homepageBackground bg-cover max-sm:h-[90vh] md:h-[92.2vh] lg:h-[91vh]">
         <div className="p-10 sm:ml-28 sm:flex sm:items-center">
           <Link href="/">
             <div className="flex text-goldFont items-center text-xl cursor-pointer">
