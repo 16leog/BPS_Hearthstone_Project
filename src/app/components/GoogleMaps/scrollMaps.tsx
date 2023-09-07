@@ -50,7 +50,7 @@ export default function ScrollMaps({ places }: props) {
   return (
     <>
     {( showList &&
-      <div className="w-full absolute top-20 z-10 md:flex flex-col overflow-y-scroll no-scrollbar text-shadow-lg bg-cover bg-blue-950 bg-homepageBackground shadow-black  py-3 text-white md:w-1/4 h-[90%]">
+      <div className="w-full absolute top-20 z-10 md:flex flex-col overflow-y-scroll no-scrollbar text-shadow-lg bg-cover bg-blue-950 bg-homepageBackground shadow-black  py-3 text-white md:w-1/4 h-[91%]">
         <div className="flex items-center max-sm:ml-5 mt-5 md:mt-12  md:justify-center">
           <Image
             className="md:hidden mx-9"

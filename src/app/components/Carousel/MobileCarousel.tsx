@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import leftGlow from '../../../../public/Arrow left Glow.svg';
 import left from '../../../../public/Arrow left.svg';
+import rightGlow from '../../../../public/Arrow right Glow.svg';
 import right from '../../../../public/Arrow right.svg';
 import { CardClass, SplitIntoSmallerLists } from '../../../../types';
 import CarouselGrid from './CarouselGrid';
@@ -19,6 +21,8 @@ export default function MobileCarousel({ cards }: CarouselProps) {
   );
   const mobileRef = useRef<HTMLDivElement>(null);
   const tailMobile = smallerListsMobile.getTail();
+  const [isLeftHovered, setIsLeftHovered] = useState(false);
+  const [isRightHovered, setIsRightHovered] = useState(false);
   useEffect(() => {
     let f = document.getElementById(mobileSlide.toString());
     console.log(mobileSlide);
@@ -110,29 +114,24 @@ export default function MobileCarousel({ cards }: CarouselProps) {
           </div>
         ))}
 
+        {/* Left button with hover effect */}
         <button
           className="absolute left-0"
-          onClick={() => {
-            handleMobileSlideLeft();
-          }}
+          onClick={() => handleMobileSlideLeft()}
+          onMouseEnter={() => setIsLeftHovered(true)} // Add this
+          onMouseLeave={() => setIsLeftHovered(false)} // Add this
         >
-          <Image
-            src={left}
-            alt="left"
-            className="max-sm:w-20 max-sm:h h-20"
-          ></Image>
+          <Image src={isLeftHovered ? leftGlow : left} alt="left"></Image>
         </button>
+
+        {/* Right button with hover effect */}
         <button
-          className="absolute right-0 "
-          onClick={() => {
-            handleMobileSlideRight();
-          }}
+          className="absolute right-0"
+          onClick={() => handleMobileSlideRight()}
+          onMouseEnter={() => setIsRightHovered(true)} // Add this
+          onMouseLeave={() => setIsRightHovered(false)} // Add this
         >
-          <Image
-            src={right}
-            alt="right"
-            className="max-sm:w-20 max-sm:h h-20"
-          ></Image>
+          <Image src={isRightHovered ? rightGlow : right} alt="right"></Image>
         </button>
       </div>
       <div className="sm:hidden flex flex-row  justify-center items-center rounded-full px-1 text-white h-16">

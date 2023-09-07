@@ -122,7 +122,7 @@ export default function Card({
 
   return (
     <div className=" mx-0">
-      <div className="flex flex-col items-center p-8  z-0">
+      <div className="flex flex-col items-center p-8 max-sm:p-0 z-0">
         <div className=" z-0 relative top-10 lg:w-2/3 2xl:w-1/2">
           <Image
             className=""

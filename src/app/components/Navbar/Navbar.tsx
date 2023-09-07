@@ -62,28 +62,38 @@ export default function Navbar() {
         </button>
       </nav>
       {toggle && (
-        <div className="sm:hidden animate-open-menu  absolute top-20 bg-navbarColor w-full h-screen text-4xl flex flex-col items-center justify-center gap-24 origin-top left-0 z-30">
+        <div className="sm:hidden animate-open-menu absolute top-20 bg-navbarColor w-full h-[90vh] text-4xl flex flex-col items-center justify-center gap-24 origin-top left-0 z-30">
           <button
-            className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8 "
-            onClick={() => router.push('/')}
+            className="font-montserrat hover:text-goldFont text-white underline underline-offset-8"
+            onClick={() => {
+              router.push('/');
+              setToggle(false); // Close the menu
+            }}
           >
             HOME
           </button>
           <button
-            className=" font-montserrat hover:text-goldFont text-white underline underline-offset-8"
-            onClick={() => router.push('/favorites')}
+            className="font-montserrat hover:text-goldFont text-white underline underline-offset-8"
+            onClick={() => {
+              router.push('/favorites');
+              setToggle(false); // Close the menu
+            }}
           >
             FAVORITES
           </button>
-          <Link
-            href={{
-              pathname: `/shops/`,
-              query: { lat: center.lat, lng: center.lng },
-            }}
-            className=" font-montserrat active:text-accents text-white underline underline-offset-8"
+          <div
+            onClick={() => setToggle(false)} // Close the menu when the link is clicked
           >
-            SHOPS
-          </Link>
+            <Link
+              href={{
+                pathname: `/shops/`,
+                query: { lat: center.lat, lng: center.lng },
+              }}
+              className="font-montserrat active:text-accents text-white underline underline-offset-8"
+            >
+              SHOPS
+            </Link>
+          </div>
         </div>
       )}
     </>

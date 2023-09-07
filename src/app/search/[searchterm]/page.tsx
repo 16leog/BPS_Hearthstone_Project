@@ -24,7 +24,7 @@ export default async function Page({
   const cards = await getAllCards(key);
   if (cards === undefined) {
     return (
-      <div className="bg-homepageBackground bg-cover min-h-screen">
+      <div className="bg-homepageBackground bg-cover max-sm:h-[90vh] md:h-[92.2vh] lg:h-[91vh]">
         <div className="p-10 sm:ml-28 sm:flex sm:items-center">
           <Link href="/">
             <div className="flex text-goldFont items-center text-xl cursor-pointer">
@@ -43,8 +43,8 @@ export default async function Page({
           <Image
             src={notFound}
             alt=""
-            width={500}
-            height={500}
+            width={375}
+            height={375}
             className="max-sm:w-3/5 max-sm:h-3/5"
           ></Image>
           <p className=" sm:text-3xl text-2xl text-white drop-shadow-2xl">
@@ -63,14 +63,22 @@ export default async function Page({
     );
   } else {
     return (
-      <div className=" bg-homepageBackground bg-cover min-h-screen">
-        <div>
-          <p className=" text-center text-white sm:text-left">
-            Results for {key}
-            <Link className="rounded bg-gold" href="/">
-              x
+      <div className=" bg-homepageBackground bg-cover max-sm:min-h-[90vh] min-h-screen">
+        <div className="">
+          <div className="p-10 sm:ml-28 sm:flex sm:items-center">
+            <Link href="/">
+              <div className="flex text-goldFont items-center text-xl cursor-pointer">
+                <p className="mr-2 sm:hidden">CANCEL SEARCH</p>
+                <Image src={exit} alt="Cancel Search" className="sm:hidden" />
+              </div>
             </Link>
-          </p>
+            <h1 className="  text-2xl  text-white mr-2  ">
+              <a className={montserrat.className}>Results for “{key}”</a>
+            </h1>
+            <Link href="/">
+              <Image src={exit} alt="Cancel Search" className="max-sm:hidden" />
+            </Link>
+          </div>
           <Filters2 cardClass={''} cards={cards}></Filters2>
         </div>
       </div>
