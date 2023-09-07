@@ -15,7 +15,7 @@ export default async function Favorites({ cardClass, cards }: props) {
     }
   });
   return (
-    <div className="flex max-sm:h-[90vh] h-screen bg-cover flex-col items-center bg-homepageBackground">
+    <div className="flex max-sm:min-h-[90vh] min-h-screen bg-cover flex-col items-center bg-homepageBackground">
       <h1 className=" mb-5 font-aclonica z-10 mt-20 text-white sm:font-outline-4 sm:text-8xl text-shadow shadow-black text-5xl font-outline-1">
         FAVORITES
       </h1>

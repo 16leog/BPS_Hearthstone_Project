@@ -538,7 +538,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
               text={'Attack'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleAttack}
             ></FilterButton>
@@ -551,7 +551,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
               text={'Health'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleHealth}
             ></FilterButton>
@@ -567,7 +567,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
               text={'Card Type'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleCardType}
             ></FilterButton>
@@ -583,7 +583,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
               text={'Minion Type'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleMinionType}
             ></FilterButton>
@@ -599,7 +599,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
               text={'Rarity'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleRarity}
             ></FilterButton>
@@ -615,7 +615,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
               text={'Keywords'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleKeywords}
             ></FilterButton>
