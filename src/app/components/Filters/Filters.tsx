@@ -337,7 +337,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
           </p>
         </button>
         {toggle && (
-          <div className="sm:hidden animate-open-menu absolute bg-brown bg-cover bg-opacity-80 w-full h-full text-4xl flex flex-col items-center top-[100%] left-0 z-30">
+          <div className="sm:hidden animate-open-menu  bg-brown bg-cover bg-opacity-80 w-full min-h-screen text-4xl flex flex-col items-center fixed top-0 left-0 z-30">
             <button
               className=" place-self-end p-4 text-white"
               onClick={handleToggle}

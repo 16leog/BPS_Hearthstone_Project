@@ -63,14 +63,22 @@ export default async function Page({
     );
   } else {
     return (
-      <div className=" bg-homepageBackground bg-cover min-h-screen">
+      <div className=" bg-homepageBackground bg-cover max-sm:min-h-[90vh] min-h-screen">
         <div className="">
-          <p className=" text-center text-white sm:text-left">
-            Results for {key}
-            <Link className="rounded bg-gold" href="/">
-              x
+          <div className="p-10 sm:ml-28 sm:flex sm:items-center">
+            <Link href="/">
+              <div className="flex text-goldFont items-center text-xl cursor-pointer">
+                <p className="mr-2 sm:hidden">CANCEL SEARCH</p>
+                <Image src={exit} alt="Cancel Search" className="sm:hidden" />
+              </div>
             </Link>
-          </p>
+            <h1 className="  text-2xl  text-white mr-2  ">
+              <a className={montserrat.className}>Results for “{key}”</a>
+            </h1>
+            <Link href="/">
+              <Image src={exit} alt="Cancel Search" className="max-sm:hidden" />
+            </Link>
+          </div>
           <Filters2 cardClass={''} cards={cards}></Filters2>
         </div>
       </div>

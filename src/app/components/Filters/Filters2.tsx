@@ -326,7 +326,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
   return (
     <div className=" max-w-full">
       <h1 className=" text-white sm:font-outline-4 sm:text-8xl text-shadow shadow-black text-5xl font-outline-1"></h1>
-      <div className="flex flex-col justify-center items-center mt-20 ">
+      <div className="flex flex-col justify-center items-center mt-20 max-sm:mt-3">
         <button
           onClick={handleToggle}
           className=" bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 bordergold rounded-full h-16 w-64 flex flex-col justify-center items-center justify-self-end sm:hidden"
@@ -336,7 +336,7 @@ export default function Filters2({ cardClass, cards }: FilterProps) {
           </p>
         </button>
         {toggle && (
-          <div className="sm:hidden animate-open-menu absolute bg-brown bg-cover bg-opacity-80 w-full h-full text-4xl flex flex-col items-center top-[100%] left-0 z-30">
+          <div className="sm:hidden animate-open-menu absolute bg-brown bg-cover bg-opacity-80 w-full h-full text-4xl flex flex-col items-center top-0 left-0 z-30">
             <button
               className=" place-self-end p-4 text-white"
               onClick={handleToggle}
