@@ -18,13 +18,13 @@ export default function Home() {
     });
   }, []);
   return (
-    <main className="flex min-h-[91vh] justify-center flex-col items-center bg-cover bg-homepageBackground">
+    <main className="flex min-h-[90vh] justify-center flex-col items-center bg-cover bg-homepageBackground">
       <div className="m-4">
         <Image
           src={homepageLogo}
           alt={'hearthstone'}
-          width={540}
-          height={250}
+          width={300}
+          height={300}
         ></Image>
       </div>
       <Searchbar sampleTextProp="sampleTextProp" />
