@@ -145,14 +145,14 @@ export default function MobileCarousel({ cards }: CarouselProps) {
         </button>
       </div>
       <div className="sm:hidden flex flex-row  justify-center items-center rounded-full px-1 text-white h-16">
-        <div className=" flex flex-row justify-between gap-10 max-sm:gap-5 mt-10 rounded-full h-[58px] ">
+        <div className=" flex flex-row justify-between gap-10 max-sm:gap-4 mt-10 rounded-full h-[58px] ">
           {tailMobile?.index && tailMobile.index > 1 ? (
             <>
               {/* Example for the first button */}
               <button
                 className={`${
                   startMobileIndex + 1 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
                 } ${startMobileIndex < 0 ? 'hidden' : ''}`}
                 onClick={() => handleMobileFirst()}
@@ -164,11 +164,11 @@ export default function MobileCarousel({ cards }: CarouselProps) {
               <button
                 className={`${
                   startMobileIndex + 2 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
-                } ${
-                  startMobileIndex + 2 > tailMobile!.index ? 'hidden' : ''
-                } ${startMobileIndex < -1 ? 'hidden' : ''}`}
+                } ${startMobileIndex + 2 > tailMobile!.index ? 'hidden' : ''} ${
+                  startMobileIndex < -1 ? 'hidden' : ''
+                }`}
                 onClick={() => handleMobileSecond()}
               >
                 {startMobileIndex + 2}
@@ -176,11 +176,11 @@ export default function MobileCarousel({ cards }: CarouselProps) {
               <button
                 className={`${
                   startMobileIndex + 3 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
-                } ${
-                  startMobileIndex + 3 > tailMobile!.index ? 'hidden' : ''
-                } ${startMobileIndex < 0 ? 'hidden' : ''}`}
+                } ${startMobileIndex + 3 > tailMobile!.index ? 'hidden' : ''} ${
+                  startMobileIndex < 0 ? 'hidden' : ''
+                }`}
                 onClick={() => handleMobileThird()}
               >
                 {startMobileIndex + 3}
@@ -190,11 +190,11 @@ export default function MobileCarousel({ cards }: CarouselProps) {
               <button
                 className={`${
                   startMobileIndex + 4 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
-                } ${
-                  startMobileIndex + 4 > tailMobile!.index ? 'hidden' : ''
-                } ${startMobileIndex < 0 ? 'hidden' : ''}`}
+                } ${startMobileIndex + 4 > tailMobile!.index ? 'hidden' : ''} ${
+                  startMobileIndex < 0 ? 'hidden' : ''
+                }`}
                 onClick={() => handleMobileFourth()}
               >
                 {startMobileIndex + 4}
@@ -204,11 +204,9 @@ export default function MobileCarousel({ cards }: CarouselProps) {
               <button
                 className={`${
                   startMobileIndex + 5 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
-                } ${
-                  startMobileIndex + 5 > tailMobile!.index ? 'hidden' : ''
-                }`}
+                } ${startMobileIndex + 5 > tailMobile!.index ? 'hidden' : ''}`}
                 onClick={() => handleMobileFifth()}
               >
                 {startMobileIndex + 5}
