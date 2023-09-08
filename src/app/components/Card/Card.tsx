@@ -150,9 +150,9 @@ export default function Card({
               {name}
             </h1>
             <div className="text-black font-serif  font-thin max-lg:text-sm text-xs 2xl:text-base text-center">
-              <p className="truncate max-w-[200px]">{type}</p>
-              <p className="truncate max-w-[200px]">{rarity}</p>
-              <p className="truncate max-w-[200px]">{text}</p>
+              <p className="truncate max-w-[175px]">{type}</p>
+              <p className="truncate max-w-[175px]">{rarity}</p>
+              <p className="truncate max-w-[175px]">{text}</p>
             </div>
           </div>
         </div>
