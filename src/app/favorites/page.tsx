@@ -8,7 +8,7 @@ type props = {
 
 export default async function Favorites({ cardClass, cards }: props) {
   const res = await fetch('http://localhost:3000/api/getData', {
-    next: { revalidate: 1 },
+    next: { revalidate: 0 },
   }).then((res) => {
     if (res.ok) {
       return res.json();
