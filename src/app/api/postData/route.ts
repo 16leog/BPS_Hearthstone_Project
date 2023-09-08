@@ -5,7 +5,7 @@ import { CardClass } from '../../../../types';
 export async function POST(request: Request) {
   const card: CardClass = await request.json();
   const queryText =
-    'INSERT INTO cards (cardid, cardname, cardset, type, rarity, attack, health, text, race, playerclass, img, mechanics, mana) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *';
+    'INSERT INTO cardsLeo (cardid, cardname, cardset, type, rarity, attack, health, text, race, playerclass, img, mechanics, mana) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *';
   //   const values = [
   //     card.cardId,
   //     card.cardName,

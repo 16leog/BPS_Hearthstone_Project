@@ -121,7 +121,7 @@ export default function MobileCarousel({ cards }: CarouselProps) {
           onMouseEnter={() => setIsLeftHovered(true)} // Add this
           onMouseLeave={() => setIsLeftHovered(false)} // Add this
         >
-          <Image src={isLeftHovered ? leftGlow : left} alt="left"></Image>
+          <Image src={isLeftHovered ? leftGlow : left} alt="left" height={50} width={50}></Image>
         </button>
 
         {/* Right button with hover effect */}
@@ -131,7 +131,7 @@ export default function MobileCarousel({ cards }: CarouselProps) {
           onMouseEnter={() => setIsRightHovered(true)} // Add this
           onMouseLeave={() => setIsRightHovered(false)} // Add this
         >
-          <Image src={isRightHovered ? rightGlow : right} alt="right"></Image>
+          <Image src={isRightHovered ? rightGlow : right} alt="right" height={50} width={50}></Image>
         </button>
       </div>
       <div className="sm:hidden flex flex-row  justify-center items-center rounded-full px-1 text-white h-16">
