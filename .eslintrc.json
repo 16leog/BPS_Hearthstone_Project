@@ -3,7 +3,9 @@
     "next",
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:testing-library/react"
+    //"plugin:jest-dom/recommended"
   ],
   "globals": {
     "React": "readonly"
