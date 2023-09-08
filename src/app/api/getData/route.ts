@@ -3,7 +3,7 @@ import { readRecords } from '../../../../lib/db';
 
 export async function GET() {
   const createTableQuery = `
-    CREATE TABLE IF NOT EXISTS cards (
+    CREATE TABLE IF NOT EXISTS cardsLeo (
       cardId VARCHAR(255) PRIMARY KEY,
       cardName VARCHAR(255) NOT NULL,
       cardSet VARCHAR(255),
@@ -22,7 +22,7 @@ export async function GET() {
 
   const queryText = `
   
-  SELECT * FROM cards;
+  SELECT * FROM cardsLeo
 `;
   const d = await readRecords(createTableQuery);
   const data = await readRecords(queryText);

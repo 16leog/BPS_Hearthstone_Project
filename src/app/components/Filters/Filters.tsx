@@ -337,7 +337,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
           </p>
         </button>
         {toggle && (
-          <div className="sm:hidden animate-open-menu absolute bg-brown bg-cover bg-opacity-80 w-full h-full text-4xl flex flex-col items-center top-[100%] left-0 z-30">
+          <div className="sm:hidden animate-open-menu  bg-brown bg-cover bg-opacity-80 w-full min-h-screen text-4xl flex flex-col items-center fixed top-0 left-0 z-30">
             <button
               className=" place-self-end p-4 text-white"
               onClick={handleToggle}
@@ -476,7 +476,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
           </div>
         )}
       </div>
-      <div className="  max-sm:hidden flex flex-row w-full justify-around items-start  max-lg:gap-5"></div>
+      <div className="  max-sm:hidden absolute z-10 flex flex-row w-full justify-around items-start  max-lg:gap-5"></div>
       {/* Mana bar */}
       <div className="flex flex-row items-center gap-1 mx-20 max-lg:flex-col max-lg:gap-5 max-sm:hidden justify-center">
         <p className="text-cyan-400 text-xl font-outline-1">Mana</p>
@@ -539,7 +539,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               text={'Attack'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleAttack}
             ></FilterButton>
@@ -552,7 +552,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               text={'Health'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleHealth}
             ></FilterButton>
@@ -568,7 +568,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               text={'Card Type'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleCardType}
             ></FilterButton>
@@ -584,7 +584,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               text={'Minion Type'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleMinionType}
             ></FilterButton>
@@ -600,7 +600,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               text={'Rarity'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleRarity}
             ></FilterButton>
@@ -616,7 +616,7 @@ export default function Filters({ cardClass, cards }: FilterProps) {
               text={'Keywords'}
               width={'52'}
               innerwidth={'200'}
-              color={'brown'}
+              color={'brown hover:bg-accents_2 hover:text-black'}
               image2={downArrow}
               funct={toggleKeywords}
             ></FilterButton>

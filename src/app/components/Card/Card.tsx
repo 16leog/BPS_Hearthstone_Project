@@ -122,7 +122,7 @@ export default function Card({
 
   return (
     <div className=" mx-0">
-      <div className="flex flex-col items-center p-8  z-0">
+      <div className="flex flex-col items-center p-8 max-sm:p-0 z-0">
         <div className=" z-0 relative top-10 lg:w-2/3 2xl:w-1/2">
           <Image
             className=""
@@ -150,9 +150,9 @@ export default function Card({
               {name}
             </h1>
             <div className="text-black font-serif  font-thin max-lg:text-sm text-xs 2xl:text-base text-center">
-              <p>{type}</p>
-              <p>{rarity}</p>
-              <p>{text}</p>
+              <p className="truncate max-w-[175px]">{type}</p>
+              <p className="truncate max-w-[175px]">{rarity}</p>
+              <p className="truncate max-w-[175px]">{text}</p>
             </div>
           </div>
         </div>

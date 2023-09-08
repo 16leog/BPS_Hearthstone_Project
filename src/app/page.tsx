@@ -18,13 +18,21 @@ export default function Home() {
     });
   }, []);
   return (
-    <main className="flex min-h-screen flex-col items-center bg-cover bg-homepageBackground">
-      <div className="m-8">
+    <main className="flex max-sm:min-h-[90vh] min-h-[91.5vh] justify-center flex-col items-center bg-cover bg-homepageBackground">
+      <div className="m-4 sm:hidden">
         <Image
           src={homepageLogo}
           alt={'hearthstone'}
-          width={540}
-          height={250}
+          width={300}
+          height={300}
+        ></Image>
+      </div>
+      <div className="m-4 max-sm:hidden">
+        <Image
+          src={homepageLogo}
+          alt={'hearthstone'}
+          width={500}
+          height={500}
         ></Image>
       </div>
       <Searchbar sampleTextProp="sampleTextProp" />

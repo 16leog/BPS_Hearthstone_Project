@@ -1,7 +1,9 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import leftGlow from '../../../../public/Arrow left Glow.svg';
 import left from '../../../../public/Arrow left.svg';
+import rightGlow from '../../../../public/Arrow right Glow.svg';
 import right from '../../../../public/Arrow right.svg';
 import { CardClass, SplitIntoSmallerLists } from '../../../../types';
 import CarouselGrid from './CarouselGrid';
@@ -21,6 +23,9 @@ export default function GridContainer({ cards }: CarouselProps) {
     let e = document.getElementById(currentSlide.toString());
     e?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
   }, [currentSlide]);
+
+  const [isLeftHovered, setIsLeftHovered] = useState(false);
+  const [isRightHovered, setIsRightHovered] = useState(false);
 
   function handleNextIndex() {
     if (endIndex >= tail!.index) {
@@ -94,58 +99,104 @@ export default function GridContainer({ cards }: CarouselProps) {
         <div className="relative bottom-14" id="6">
           {/* <CarouselGrid cardList={last ? last : []}></CarouselGrid> */}
         </div>
-        <button className="absolute left-0 " onClick={() => handleSlideLeft()}>
-          <Image src={left} alt="left" className=" "></Image>
-        </button>
+        {/* Left button with hover effect */}
         <button
-          className="absolute right-0 "
-          onClick={() => handleSlideRight()}
+          className="absolute left-0"
+          onClick={() => handleSlideLeft()}
+          onMouseEnter={() => setIsLeftHovered(true)} // Add this
+          onMouseLeave={() => setIsLeftHovered(false)} // Add this
         >
-          <Image src={right} alt="right"></Image>
+          <Image src={isLeftHovered ? leftGlow : left} alt="left"></Image>
+        </button>
+
+        {/* Right button with hover effect */}
+        <button
+          className="absolute right-0"
+          onClick={() => handleSlideRight()}
+          onMouseEnter={() => setIsRightHovered(true)} // Add this
+          onMouseLeave={() => setIsRightHovered(false)} // Add this
+        >
+          <Image src={isRightHovered ? rightGlow : right} alt="right"></Image>
         </button>
       </div>
       <div className="flex flex-row  justify-center items-centerrounded-full px-1 text-white h-16">
         <div className=" flex flex-row justify-between gap-10 rounded-full h-[58px] ">
           {tail?.index && tail.index > 1 ? (
             <>
-              {[1, 2, 3, 4, 5].map((pageNumber) => (
-                <button
-                  key={pageNumber}
-                  className={`font-outline-1 rounded-lg bg-gradient-to-b ${
-                    startIndex + pageNumber === currentSlide
-                      ? 'from-gold via-gold_2 via-80% to-gold_3'
-                      : ''
-                  } ${
-                    startIndex + pageNumber > tail!.index ||
-                    startIndex + pageNumber < 1
-                      ? 'invisible'
-                      : ''
-                  } mr-1 w-12 text-xl drop-shadow-lg`}
-                  onClick={() => setCurrentSlide(startIndex + pageNumber)}
-                >
-                  {startIndex + pageNumber}
-                </button>
-              ))}
-              {/* ... button */}
+              {/* Example for the first button */}
               <button
-                className="font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-xl drop-shadow-lg"
-                onClick={() => handleNextIndex()}
+                className={`${
+                  startIndex + 1 === currentSlide + startIndex
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    : ''
+                } ${startIndex < 0 ? 'hidden' : ''}`}
+                onClick={() => handleFirst()}
               >
+                {startIndex + 1}
+              </button>
+
+              {/* Example for the second button */}
+              <button
+                className={`${
+                  startIndex + 2 === currentSlide + startIndex
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    : ''
+                } ${startIndex + 2 > tail!.index ? 'hidden' : ''} ${
+                  startIndex < -1 ? 'hidden' : ''
+                }`}
+                onClick={() => handleSecond()}
+              >
+                {startIndex + 2}
+              </button>
+              <button
+                className={`${
+                  startIndex + 3 === currentSlide + startIndex
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    : ''
+                } ${startIndex + 3 > tail!.index ? 'hidden' : ''} ${
+                  startIndex < 0 ? 'hidden' : ''
+                }`}
+                onClick={() => handleThird()}
+              >
+                {startIndex + 3}
+              </button>
+
+              {/* Example for the fourth button */}
+              <button
+                className={`${
+                  startIndex + 4 === currentSlide + startIndex
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    : ''
+                } ${startIndex + 4 > tail!.index ? 'hidden' : ''} ${
+                  startIndex < 0 ? 'hidden' : ''
+                }`}
+                onClick={() => handleFourth()}
+              >
+                {startIndex + 4}
+              </button>
+
+              {/* Example for the fifth button */}
+              <button
+                className={`${
+                  startIndex + 5 === currentSlide + startIndex
+                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    : ''
+                } ${startIndex + 5 > tail!.index ? 'hidden' : ''}`}
+                onClick={() => handleFifth()}
+              >
+                {startIndex + 5}
+              </button>
+
+              {/* Example for the next button (using ellipsis) */}
+              <button className={``} onClick={() => handleNextIndex()}>
                 ...
               </button>
-              {/* Last page button */}
-              <button
-                className={`font-outline-1 rounded-lg bg-gradient-to-b ${
-                  tail!.index === currentSlide
-                    ? 'from-gold via-gold_2 via-80% to-gold_3'
-                    : ''
-                } mr-1 w-12 text-xl drop-shadow-lg`}
-              >
-                {tail!.index}
+              <button className="">
+                {(tail ? tail!.index : -1) < 1 ? 1 : tail ? tail!.index + 1 : 0}
               </button>
             </>
           ) : (
-            <button className="font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-xl drop-shadow-lg">
+            <button className="rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 drop-shadow-lg">
               1
             </button>
           )}
