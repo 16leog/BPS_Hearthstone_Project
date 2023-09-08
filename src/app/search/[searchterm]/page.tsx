@@ -33,7 +33,7 @@ export default async function Page({
             </div>
           </Link>
           <h1 className="  text-2xl  text-white mr-2  ">
-            <a className={montserrat.className}>0 Results for {key}</a>
+            <a className={montserrat.className}>0 Results for “{key}”</a>
           </h1>
           <Link href="/">
             <Image src={exit} alt="Cancel Search" className="max-sm:hidden" />
