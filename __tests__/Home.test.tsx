@@ -17,9 +17,14 @@ global.fetch = jest.fn(() =>
 ) as jest.Mock;
 
 describe('Homepage tests', () => {
-  it('should render the Mage button', async () => {
-    // Set up a mock response for the fetch call
+  it('should render the Searchbar', async () => {
+    render(<Home />);
+    const myElement = screen.getByText('SEARCH');
 
+    expect(myElement).toBeInTheDocument();
+  });
+
+  it('should render the Mage button', async () => {
     render(<Home />);
     const myElement = screen.getByText('Mage');
 
@@ -27,8 +32,6 @@ describe('Homepage tests', () => {
   });
 
   it('should render the Druid button', async () => {
-    // Set up a mock response for the fetch call
-
     render(<Home />);
     const myElement = screen.getByText('Druid');
 
@@ -36,8 +39,6 @@ describe('Homepage tests', () => {
   });
 
   it('should render the Hunter button', async () => {
-    // Set up a mock response for the fetch call
-
     render(<Home />);
     const myElement = screen.getByText('Hunter');
 
@@ -45,8 +46,6 @@ describe('Homepage tests', () => {
   });
 
   it('should render the Priest button', async () => {
-    // Set up a mock response for the fetch call
-
     render(<Home />);
     const myElement = screen.getByText('Priest');
 
@@ -54,8 +53,6 @@ describe('Homepage tests', () => {
   });
 
   it('should render the Rogue button', async () => {
-    // Set up a mock response for the fetch call
-
     render(<Home />);
     const myElement = screen.getByText('Rogue');
 
@@ -63,8 +60,6 @@ describe('Homepage tests', () => {
   });
 
   it('should render the Paladin button', async () => {
-    // Set up a mock response for the fetch call
-
     render(<Home />);
     const myElement = screen.getByText('Paladin');
 
@@ -72,8 +67,6 @@ describe('Homepage tests', () => {
   });
 
   it('should render the Demon Hunter button', async () => {
-    // Set up a mock response for the fetch call
-
     render(<Home />);
     const myElement = screen.getByText('Demon Hunter');
 
@@ -81,8 +74,6 @@ describe('Homepage tests', () => {
   });
 
   it('should render the Warlock button', async () => {
-    // Set up a mock response for the fetch call
-
     render(<Home />);
     const myElement = screen.getByText('Warlock');
 
@@ -90,8 +81,6 @@ describe('Homepage tests', () => {
   });
 
   it('should render the Warrior button', async () => {
-    // Set up a mock response for the fetch call
-
     render(<Home />);
     const myElement = screen.getByText('Warrior');
 
@@ -99,8 +88,6 @@ describe('Homepage tests', () => {
   });
 
   it('should make api call in the homepage to create a table', async () => {
-    // Set up a mock response for the fetch call
-
     render(<Home />);
     // Optionally, you can check if fetch was called with the expected URL and options
     expect(fetch).toHaveBeenCalledWith(
