@@ -36,43 +36,57 @@ export default function ShopDetail({ place, clickBack }: DetailShopProps) {
           <Image src={pin} alt={'Lef Arrow Icon'} />
           <p className="mx-3">{place.vicinity}</p>
         </div>
-        <div className="flex">
+        <div className={`flex ${place.opening_hours == undefined ? 'hidden' : ''}`}>
           <Image src={clock} alt={'Lef Arrow Icon'} />
           <p
             className={`${
-              place.opening_hours.open_now == true ? 'text-cyan-500' : 'text-red-700'
+              place.opening_hours === undefined
+                ? ''
+                : place.opening_hours!.open_now!
+                ? 'text-cyan-500'
+                : 'text-red-700'
             } mx-3`}
           >
-            {place.opening_hours.open_now == true ? 'Open' : 'Closed'}
+            {place.opening_hours === undefined
+              ? ''
+              : place.opening_hours.open_now == true
+              ? 'Open'
+              : 'Closed'}
           </p>
         </div>
-        <div className="flex flex-col gap-5">
+        <div
+          className={`flex flex-col gap-5 ${
+            place.opening_hours == undefined ? 'hidden' : ''
+          }`}
+        >
           <table className="mx-8">
-            {place.opening_hours.weekday_text.map(
-              (
-                day:
-                  | string
-                  | number
-                  | boolean
-                  | ReactElement<any, string | JSXElementConstructor<any>>
-                  | Iterable<ReactNode>
-                  | ReactPortal
-                  | PromiseLikeOfReactNode
-                  | null
-                  | undefined,
-                index: Key | null | undefined
-              ) => (
-                <div className="py-5" key={index}>
-                  {day}
-                </div>
-              )
-            )}
+            {place.opening_hours === undefined
+              ? ''
+              : place.opening_hours.weekday_text.map(
+                  (
+                    day:
+                      | string
+                      | number
+                      | boolean
+                      | ReactElement<any, string | JSXElementConstructor<any>>
+                      | Iterable<ReactNode>
+                      | ReactPortal
+                      | PromiseLikeOfReactNode
+                      | null
+                      | undefined,
+                    index: Key | null | undefined
+                  ) => (
+                    <div className="py-5" key={index}>
+                      {day}
+                    </div>
+                  )
+                )}
           </table>
-          <div className="flex">
+          <div className={`flex ${place.website == undefined ? 'hidden' : ''}`}>
             <Image src={globe} alt=""></Image>
             <p className="mx-3">{place.website}</p>
           </div>
-          <div className="flex">
+          <div className={`flex ${place.phone == undefined ? 'hidden' : ''}`}>
             <Image src={phone} alt=""></Image>
             <p className="mx-3">{place.phone}</p>
           </div>
