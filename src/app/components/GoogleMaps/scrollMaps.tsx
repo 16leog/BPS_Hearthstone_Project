@@ -73,20 +73,23 @@ export default function ScrollMaps({ places }: props) {
           </div>
         ) : (
           <div className="mt-12 mx-7 ">
-            {/* ISERT A LOOP TO POPULATE THE SIDE MENU */}
             {places.map((place, index) => (
-              <div key={index}>
-                <ShopCard
-                  name={place.name}
-                  address={place.vicinity}
-                  open={place.opening_hours.open_now ? 'Open' : 'Closed'}
-                  schedule={place.opening_hours?.weekday_text ? place.opening_hours?.weekday_text[0].replace(
-                    'Monday:',
-                    ''
-                  ): 'n/a'}
-                  phone={place.phone}
-                  clickCard={() => goToDetail(place)}
-                />
+                <div key={index}>
+                  <ShopCard
+                    name={place.name}
+                    address={place.vicinity}
+                    open={place.opening_hours?.open_now ? 'Open' : 'Closed'}
+                    schedule={
+                      place.opening_hours?.weekday_text
+                        ? place.opening_hours?.weekday_text[0].replace(
+                            'Monday:',
+                            ''
+                          )
+                        : 'n/a'
+                    }
+                    phone={place.phone}
+                    clickCard={() => goToDetail(place)}
+                  />
               </div>
             ))}
           </div>
