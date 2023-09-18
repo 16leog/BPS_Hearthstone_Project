@@ -97,6 +97,13 @@ export default function MobileCarousel({ cards }: CarouselProps) {
   function handleMobileFifth() {
     setMobileSlide(5);
   }
+  function handleMobileToTail() {
+    if (tailMobile) {
+      while (endMobileIndex < tailMobile.index) {
+        handleMobileNextIndex();
+      }
+    }
+  }
 
   return (
     <>
@@ -216,7 +223,13 @@ export default function MobileCarousel({ cards }: CarouselProps) {
               <button className={``} onClick={() => handleMobileNextIndex()}>
                 ...
               </button>
-              <button className="">
+              <button
+                onClick={() => {
+                  handleMobileToTail();
+                  setMobileSlide(1);
+                }}
+                className=""
+              >
                 {(tailMobile ? tailMobile!.index : -1) < 1
                   ? 1
                   : tailMobile

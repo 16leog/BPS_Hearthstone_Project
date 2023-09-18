@@ -21,7 +21,7 @@ export default function GridContainer({ cards }: CarouselProps) {
   const tail = smallerLists.getTail();
   useEffect(() => {
     let e = document.getElementById(currentSlide.toString());
-    e?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
+    e?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
   }, [currentSlide]);
 
   const [isLeftHovered, setIsLeftHovered] = useState(false);
@@ -84,6 +84,13 @@ export default function GridContainer({ cards }: CarouselProps) {
     setCurrentSlide(5);
   }
 
+  function handleToTail() {
+    if (tail) {
+      while (endIndex < tail.index) {
+        handleNextIndex();
+      }
+    }
+  }
   return (
     <>
       <div className="snap-x snap-mandatory grid grid-cols-8 gap-x-[900px] xl:gap-x-[1600px] lg:gap-x-[1200px] 2xl:gap-x-[2000px] overflow-x-scroll overflow-y-hidden no-scrollbar w-full mx-auto items-center ">
@@ -191,7 +198,10 @@ export default function GridContainer({ cards }: CarouselProps) {
               <button className={``} onClick={() => handleNextIndex()}>
                 ...
               </button>
-              <button className="">
+              <button onClick={() => {
+              handleToTail();
+              setCurrentSlide(1);
+            }} className="">
                 {(tail ? tail!.index : -1) < 1 ? 1 : tail ? tail!.index + 1 : 0}
               </button>
             </>
