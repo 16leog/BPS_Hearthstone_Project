@@ -11,6 +11,7 @@ import rogueEmblem from 'public/rogue emblem_2023-07-21/rogue emblem@3x.webp';
 import shamanEmblem from 'public/shaman emblem_2023-07-21/shaman emblem@3x.webp';
 import warlockEmblem from 'public/warlock emblem_2023-07-21/warlock emblem@3x.webp';
 import warriorEmblem from 'public/warrior emblem_2023-07-21/warrior emblem@3x.webp';
+import { useEffect, useState } from 'react';
 
 export interface IHomeGrid {
   sampleTextProp: string;
@@ -29,10 +30,29 @@ const classEmblems = {
   warrior: warriorEmblem,
 };
 
+
 export default function HomeGrid() {
   const router = useRouter();
+  const [windowWidth, setWindowWidth] = useState(0);
+
+useEffect(() => {
+  setWindowWidth(window.innerWidth);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
+
+const imageSize = windowWidth >= 1280 ? 150 : 80; // 1280 is the breakpoint for 'xl' in Tailwind by default
+
   return (
-    <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-14 gap-3 mx-7 justify-items-center ">
+    <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-8 gap-3 w-4/6 justify-items-center">
       {Object.entries(classEmblems).map(([className, emblemImage]) => {
         // Handling special case of 'Demonhunter'
         const displayName =
@@ -53,7 +73,7 @@ export default function HomeGrid() {
                 width={120}
                 alt=""
               ></Image>
-              <p className="text-center sm:text-xl">{displayName}</p>
+              <p className="text-center sm:text-md">{displayName}</p>
             </button>
           </div>
         );
