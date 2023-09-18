@@ -159,64 +159,114 @@ export default function MobileCarousel({ cards }: CarouselProps) {
               <button
                 className={`${
                   startMobileIndex + 1 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
                 } ${startMobileIndex < 0 ? 'hidden' : ''}`}
                 onClick={() => handleMobileFirst()}
               >
-                {startMobileIndex + 1}
+                <div
+                  className={`${
+                    startMobileIndex + 1 === mobileSlide + startMobileIndex
+                      ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                      : ''
+                  } ${startMobileIndex < 0 ? 'hidden' : ''}`}
+                >
+                  {startMobileIndex + 1}
+                </div>
               </button>
 
               {/* Example for the second button */}
               <button
                 className={`${
                   startMobileIndex + 2 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
                 } ${startMobileIndex + 2 > tailMobile!.index ? 'hidden' : ''} ${
                   startMobileIndex < -1 ? 'hidden' : ''
                 }`}
                 onClick={() => handleMobileSecond()}
               >
-                {startMobileIndex + 2}
+                <div
+                  className={`${
+                    startMobileIndex + 2 === mobileSlide + startMobileIndex
+                      ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                      : ''
+                  } ${
+                    startMobileIndex + 2 > tailMobile!.index ? 'hidden' : ''
+                  } ${startMobileIndex < -1 ? 'hidden' : ''}`}
+                >
+                  {' '}
+                  {startMobileIndex + 2}
+                </div>
               </button>
               <button
                 className={`${
                   startMobileIndex + 3 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
                 } ${startMobileIndex + 3 > tailMobile!.index ? 'hidden' : ''} ${
                   startMobileIndex < 0 ? 'hidden' : ''
                 }`}
                 onClick={() => handleMobileThird()}
               >
-                {startMobileIndex + 3}
+                <div
+                  className={`${
+                    startMobileIndex + 3 === mobileSlide + startMobileIndex
+                      ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                      : ''
+                  } ${
+                    startMobileIndex + 3 > tailMobile!.index ? 'hidden' : ''
+                  } ${startMobileIndex < 0 ? 'hidden' : ''}`}
+                >
+                  {startMobileIndex + 3}
+                </div>
               </button>
 
               {/* Example for the fourth button */}
               <button
                 className={`${
                   startMobileIndex + 4 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
                 } ${startMobileIndex + 4 > tailMobile!.index ? 'hidden' : ''} ${
                   startMobileIndex < 0 ? 'hidden' : ''
                 }`}
                 onClick={() => handleMobileFourth()}
               >
-                {startMobileIndex + 4}
+                <div
+                  className={`${
+                    startMobileIndex + 4 === mobileSlide + startMobileIndex
+                      ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                      : ''
+                  } ${
+                    startMobileIndex + 4 > tailMobile!.index ? 'hidden' : ''
+                  } ${startMobileIndex < 0 ? 'hidden' : ''}`}
+                >
+                  {startMobileIndex + 4}
+                </div>
               </button>
 
               {/* Example for the fifth button */}
               <button
                 className={`${
                   startMobileIndex + 5 === mobileSlide + startMobileIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-md drop-shadow-lg'
                     : ''
                 } ${startMobileIndex + 5 > tailMobile!.index ? 'hidden' : ''}`}
                 onClick={() => handleMobileFifth()}
               >
-                {startMobileIndex + 5}
+                <div
+                  className={`${
+                    startMobileIndex + 5 === mobileSlide + startMobileIndex
+                      ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                      : ''
+                  } ${
+                    startMobileIndex + 5 > tailMobile!.index ? 'hidden' : ''
+                  }`}
+                >
+                  {' '}
+                  {startMobileIndex + 5}
+                </div>
               </button>
 
               {/* Example for the next button (using ellipsis) */}
