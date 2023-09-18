@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={` ${aclonica.className} bg-navbarColor`}>
+      <body className={` ${aclonica.className} bg-navbarColor bg-homepageBackground bg-cover min-h-screen`}>
         <Navbar />
         {children}
       </body>

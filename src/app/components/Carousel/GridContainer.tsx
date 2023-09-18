@@ -21,7 +21,11 @@ export default function GridContainer({ cards }: CarouselProps) {
   const tail = smallerLists.getTail();
   useEffect(() => {
     let e = document.getElementById(currentSlide.toString());
-    e?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    e?.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'start',
+      block: 'nearest',
+    });
   }, [currentSlide]);
 
   const [isLeftHovered, setIsLeftHovered] = useState(false);
@@ -134,74 +138,108 @@ export default function GridContainer({ cards }: CarouselProps) {
               <button
                 className={`${
                   startIndex + 1 === currentSlide + startIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
                     : ''
                 } ${startIndex < 0 ? 'hidden' : ''}`}
                 onClick={() => handleFirst()}
               >
-                {startIndex + 1}
+                <div
+                  className={`${
+                    startIndex + 1 === currentSlide + startIndex
+                      ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                      : ''
+                  } ${startIndex < 0 ? 'hidden' : ''}`}
+                >
+                  {startIndex + 1}
+                </div>
               </button>
 
               {/* Example for the second button */}
               <button
                 className={`${
                   startIndex + 2 === currentSlide + startIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
                     : ''
                 } ${startIndex + 2 > tail!.index ? 'hidden' : ''} ${
                   startIndex < -1 ? 'hidden' : ''
                 }`}
                 onClick={() => handleSecond()}
               >
-                {startIndex + 2}
+               <div className={`${
+                  startIndex + 2 === currentSlide + startIndex
+                    ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                    : ''
+                } ${startIndex + 2 > tail!.index ? 'hidden' : ''} ${
+                  startIndex < -1 ? 'hidden' : ''
+                }`}> {startIndex + 2}</div>
               </button>
+              {/* Example for the third button */}
               <button
                 className={`${
                   startIndex + 3 === currentSlide + startIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
                     : ''
                 } ${startIndex + 3 > tail!.index ? 'hidden' : ''} ${
                   startIndex < 0 ? 'hidden' : ''
                 }`}
                 onClick={() => handleThird()}
               >
-                {startIndex + 3}
+               <div className={`${
+                  startIndex + 3 === currentSlide + startIndex
+                    ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                    : ''
+                } ${startIndex + 3 > tail!.index ? 'hidden' : ''} ${
+                  startIndex < 0 ? 'hidden' : ''
+                }`}> {startIndex + 3}</div>
               </button>
 
               {/* Example for the fourth button */}
               <button
                 className={`${
                   startIndex + 4 === currentSlide + startIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
                     : ''
                 } ${startIndex + 4 > tail!.index ? 'hidden' : ''} ${
                   startIndex < 0 ? 'hidden' : ''
                 }`}
                 onClick={() => handleFourth()}
               >
-                {startIndex + 4}
+                <div className={`${
+                  startIndex + 4 === currentSlide + startIndex
+                    ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                    : ''
+                } ${startIndex + 4 > tail!.index ? 'hidden' : ''} ${
+                  startIndex < 0 ? 'hidden' : ''
+                }`}>{startIndex + 4}</div>
               </button>
 
               {/* Example for the fifth button */}
               <button
                 className={`${
                   startIndex + 5 === currentSlide + startIndex
-                    ? 'font-outline-1 rounded-lg bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
+                    ? 'font-outline-1 rounded-lg p-0.5 bg-gradient-to-b from-gold via-gold_2 via-80% to-gold_3 mr-1 w-12 text-lg drop-shadow-lg'
                     : ''
                 } ${startIndex + 5 > tail!.index ? 'hidden' : ''}`}
                 onClick={() => handleFifth()}
               >
-                {startIndex + 5}
+                <div className={`${
+                  startIndex + 5 === currentSlide + startIndex
+                    ? 'bg-brown text-white text-xs text-center p-1 h-full rounded-lg flex flex-row justify-center gap-1 items-center'
+                    : ''
+                } ${startIndex + 5 > tail!.index ? 'hidden' : ''}`}>{startIndex + 5}</div>
               </button>
 
               {/* Example for the next button (using ellipsis) */}
               <button className={``} onClick={() => handleNextIndex()}>
                 ...
               </button>
-              <button onClick={() => {
-              handleToTail();
-              setCurrentSlide(1);
-            }} className="">
+              <button
+                onClick={() => {
+                  handleToTail();
+                  setCurrentSlide(1);
+                }}
+                className=""
+              >
                 {(tail ? tail!.index : -1) < 1 ? 1 : tail ? tail!.index + 1 : 0}
               </button>
             </>

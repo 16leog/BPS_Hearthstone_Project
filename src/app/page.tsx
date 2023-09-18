@@ -18,7 +18,7 @@ export default function Home() {
     });
   }, []);
   return (
-    <main className="flex max-sm:min-h-[90vh] min-h-[90vh] flex-col items-center bg-cover bg-homepageBackground">
+    <main className="flex flex-col items-center justify-center 2xl:gap-10">
       <div className="m-4 sm:hidden">
         <Image src={homepageLogo} alt={'hearthstone'}></Image>
       </div>

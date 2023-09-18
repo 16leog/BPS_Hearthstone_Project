@@ -18,7 +18,7 @@ export default function Searchbar({ sampleTextProp }: ISearchbar) {
   };
   return (
     <form
-      className="flex w-1/2 max-sm:w-5/6 rounded-full h-16 bg-navbarColor mb-6"
+      className="flex w-1/2 max-sm:w-5/6 rounded-full h-16 bg-navbarColor mb-10"
       onSubmit={handleSubmit}
     >
       <button disabled={!search}>
