@@ -32,7 +32,7 @@ const classEmblems = {
 export default function HomeGrid() {
   const router = useRouter();
   return (
-    <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-20 gap-3 mx-7 align-middle justify-items-center items-center">
+    <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-14 gap-3 mx-7 justify-items-center ">
       {Object.entries(classEmblems).map(([className, emblemImage]) => {
         // Handling special case of 'Demonhunter'
         const displayName =
@@ -49,11 +49,11 @@ export default function HomeGrid() {
               <Image
                 className="hover:shadow-aura active:shadow-aura rounded-full"
                 src={emblemImage}
-                height={164}
-                width={164}
+                height={120}
+                width={120}
                 alt=""
               ></Image>
-              <p className="text-center sm:text-2xl">{displayName}</p>
+              <p className="text-center sm:text-xl">{displayName}</p>
             </button>
           </div>
         );

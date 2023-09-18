@@ -122,7 +122,7 @@ export default function Card({
 
   return (
     <div className=" mx-0">
-      <div className="flex flex-col items-center p-8 max-sm:p-0 z-0">
+      <div className="flex flex-col items-center p-5 max-sm:p-0 z-0">
         <div className=" z-0 relative top-10 lg:w-2/3 2xl:w-1/2">
           <Image
             className=""
@@ -132,7 +132,7 @@ export default function Card({
             alt="card"
           ></Image>
         </div>
-        <div className=" bg-card_bg relative max-sm:left-28 left-[60%] 2xl:left-[140px] top-4 rounded-full p-1">
+        <div className=" bg-card_bg relative max-sm:left-28 left-[50%] 2xl:left-[140px] top-4 rounded-full p-1">
           <div className="flex flex-col bg-card rounded-full">
             <button className="p-1" onClick={handleFavorite}>
               <Image
@@ -144,15 +144,15 @@ export default function Card({
             </button>
           </div>
         </div>
-        <div className=" h-28 w-48 xl:w-60 2xl:w-72 2xl:h-40 max-sm:w-60 bg-card_bg flex flex-col justify-center items-center p-1 rounded-lg">
+        <div className=" h-28 w-48 lg:h-24 lg:w-40 xl:w-52 2xl:w-72 2xl:h-40 max-sm:w-60 bg-card_bg flex flex-col justify-center items-center p-1 rounded-lg">
           <div className="w-full h-full bg-card flex flex-col justify-center items-center rounded-lg">
             <h1 className="text-black text-center xl:text-lg md:text-xs lg:text-sm">
               {name}
             </h1>
             <div className="text-black font-serif  font-thin max-lg:text-sm text-xs 2xl:text-base text-center">
-              <p className="truncate max-w-[175px]">{type}</p>
-              <p className="truncate max-w-[175px]">{rarity}</p>
-              <p className="truncate max-w-[175px]">{text}</p>
+              <p className="truncate max-w-[150px]">{type}</p>
+              <p className="truncate max-w-[150px]">{rarity}</p>
+              <p className="truncate max-w-[150px]">{text}</p>
             </div>
           </div>
         </div>

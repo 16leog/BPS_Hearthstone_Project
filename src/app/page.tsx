@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import homepageLogo from 'public/homepage_logo 1_2023-07-21/homepage_logo 1@3x.webp';
+import homepageLogo from 'public/homepage_logo 1_2023-07-21/homepage_logo 1.webp';
 import { useEffect } from 'react';
 import HomeGrid from './components/HomeGrid/HomeGrid';
 import Searchbar from './components/Searchbar/Searchbar';
@@ -18,21 +18,16 @@ export default function Home() {
     });
   }, []);
   return (
-    <main className="flex max-sm:min-h-[90vh] min-h-[91.5vh] justify-center flex-col items-center bg-cover bg-homepageBackground">
+    <main className="flex max-sm:min-h-[90vh] min-h-[90vh] flex-col items-center bg-cover bg-homepageBackground">
       <div className="m-4 sm:hidden">
-        <Image
-          src={homepageLogo}
-          alt={'hearthstone'}
-          width={300}
-          height={300}
-        ></Image>
+        <Image src={homepageLogo} alt={'hearthstone'}></Image>
       </div>
       <div className="m-4 max-sm:hidden">
         <Image
           src={homepageLogo}
           alt={'hearthstone'}
-          width={500}
-          height={500}
+          width={350}
+          height={350}
         ></Image>
       </div>
       <Searchbar sampleTextProp="sampleTextProp" />
