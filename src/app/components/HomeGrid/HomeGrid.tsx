@@ -30,29 +30,28 @@ const classEmblems = {
   warrior: warriorEmblem,
 };
 
-
 export default function HomeGrid() {
   const router = useRouter();
   const [windowWidth, setWindowWidth] = useState(0);
 
-useEffect(() => {
-  setWindowWidth(window.innerWidth);
-
-  const handleResize = () => {
+  useEffect(() => {
     setWindowWidth(window.innerWidth);
-  };
 
-  window.addEventListener('resize', handleResize);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
-  return () => {
-    window.removeEventListener('resize', handleResize);
-  };
-}, []);
+    window.addEventListener('resize', handleResize);
 
-const imageSize = windowWidth >= 1280 ? 150 : 80; // 1280 is the breakpoint for 'xl' in Tailwind by default
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const imageSize = windowWidth >= 1280 ? 120 : 75; // 1280 is the breakpoint for 'xl' in Tailwind by default
 
   return (
-    <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-8 gap-3 w-4/6 justify-items-center">
+    <div className="grid sm:grid-cols-5 grid-cols-3 sm:gap-8 gap-2 w-4/6 justify-items-center">
       {Object.entries(classEmblems).map(([className, emblemImage]) => {
         // Handling special case of 'Demonhunter'
         const displayName =
@@ -69,11 +68,11 @@ const imageSize = windowWidth >= 1280 ? 150 : 80; // 1280 is the breakpoint for 
               <Image
                 className="hover:shadow-aura active:shadow-aura rounded-full"
                 src={emblemImage}
-                height={120}
-                width={120}
+                height={imageSize}
+                width={imageSize}
                 alt=""
               ></Image>
-              <p className="text-center sm:text-md">{displayName}</p>
+              <p className="text-center sm:text-sm xl:text-md">{displayName}</p>
             </button>
           </div>
         );
